@@ -1,5 +1,13 @@
 const services = [
 	{
+		title: "Consulting",
+		desc: "Architecture reviews, delivery strategy, cloud guidance, and technical leadership to unblock teams fast.",
+	},
+	{
+		title: "Staffing",
+		desc: "Vetted developers and agile pods — contract or contract-to-hire—to scale delivery without sacrificing quality.",
+	},
+	{
 		title: "Microservices",
 		desc: "Independently deployable services with clean boundaries, observability, and scale-ready design.",
 	},
@@ -72,6 +80,9 @@ export default function Services() {
         .svcCard:nth-child(4) { animation-delay: 0.4s; }
         .svcCard:nth-child(5) { animation-delay: 0.5s; }
         .svcCard:nth-child(6) { animation-delay: 0.6s; }
+        .svcCard:nth-child(5) { animation-delay: 0.7s; }
+        .svcCard:nth-child(6) { animation-delay: 0.8s; }
+
         
         @keyframes cardFloat {
           from {
