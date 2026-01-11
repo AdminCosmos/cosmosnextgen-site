@@ -14,16 +14,15 @@ export async function onRequestPost(context) {
             });
         }
 
-        // MailChannels payload
         const payload = {
             personalizations: [
                 {
-                    to: [{ email: "hr@cosmosnextgen.com", name: "COSMOS Admin" }],
+                    to: [{ email: "admin@cosmosnextgen.com", name: "COSMOS Admin" }],
                     subject: `New message from COSMOS website: ${name}`,
                 },
             ],
             from: {
-                // IMPORTANT: keep this on YOUR domain (not gmail/yahoo)
+                // Keep this domain-based. Random gmail/yahoo often fails with MailChannels.
                 email: "no-reply@cosmosnextgen.com",
                 name: "COSMOS Website",
             },
@@ -68,4 +67,12 @@ export async function onRequestPost(context) {
             headers: { "Content-Type": "application/json" },
         });
     }
+}
+
+// Optional: make GET friendly instead of 405 confusion
+export async function onRequestGet() {
+    return new Response(JSON.stringify({ ok: true, hint: "POST to this endpoint." }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+    });
 }
