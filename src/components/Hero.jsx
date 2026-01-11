@@ -23,15 +23,14 @@ export default function Hero() {
 
             <div className="heroStats">
               <div className="statCard">
+                <div className="statTop">Consulting & Staffing</div>
+                <div className="statBig">Advisory • Teams • Talent</div>
+                <div className="statSub">Exceptional IT Consultants +  real business goals</div>
+              </div>
+              <div className="statCard">
                 <div className="statTop">Cloud-Native</div>
                 <div className="statBig">AWS • Azure • GCP</div>
                 <div className="statSub">Architecture, migration, optimization</div>
-              </div>
-
-              <div className="statCard">
-                <div className="statTop">Consulting & Staffing</div>
-                <div className="statBig">Advisory • Teams • Talent</div>
-                <div className="statSub">Architecture guidance + vetted engineers, on-demand</div>
               </div>
             </div>
           </div>

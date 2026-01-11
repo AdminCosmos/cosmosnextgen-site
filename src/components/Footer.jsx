@@ -34,10 +34,10 @@ export default function Footer() {
 
           {/* RIGHT */}
           <div className="footerRight">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#why">Why Us</a>
-            <a href="#contact">Contact</a>
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="/#why">Why Us</a>
+            <a href="/#contact">Contact</a>
           </div>
         </div>
 
@@ -56,12 +56,11 @@ export default function Footer() {
           display:flex;
           align-items:flex-start;
           justify-content:space-between;
-          gap: 48px; /* 🔥 more spacing between modules */
+          gap: 48px;
           padding-bottom: 18px;
           flex-wrap: wrap;
         }
 
-        /* LEFT */
         .footerLeft {
           display: flex;
           align-items: center;
@@ -95,7 +94,6 @@ export default function Footer() {
           font-size: 13px;
         }
 
-        /* CENTER */
         .footerCenter {
           flex: 1 1 360px;
           min-width: 320px;
@@ -103,7 +101,7 @@ export default function Footer() {
 
         .contactInfo {
           display: flex;
-          gap: 36px; /* 🔥 more spacing inside center block */
+          gap: 36px;
           flex-wrap: wrap;
         }
 
@@ -140,7 +138,6 @@ export default function Footer() {
           margin: 0;
         }
 
-        /* RIGHT */
         .footerRight{
           display:flex;
           gap: 18px;
@@ -160,7 +157,6 @@ export default function Footer() {
           text-underline-offset: 3px;
         }
 
-        /* BOTTOM */
         .footerBottom{
           padding-top: 14px;
           color: #23242a;
@@ -169,7 +165,6 @@ export default function Footer() {
           text-align: center;
         }
 
-        /* MOBILE */
         @media (max-width: 768px) {
           .footerInner {
             flex-direction: column;

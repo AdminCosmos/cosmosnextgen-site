@@ -4,36 +4,36 @@ export default function About() {
             <div className="container">
                 <h2 className="section-title">About Us</h2>
                 <p className="section-subtitle">
-                    COSMOS is a team of experienced engineers dedicated to helping clients build reliable,
-                    scalable, high-quality products. We leverage agile frameworks for clear execution and
-                    iterative delivery — turning complex ideas into clean, production-ready systems.
+                    COSMOS NextGen IT LLC partners with organizations to deliver modern software, cloud solutions,
+                    and the right technical talent. From advisory and architecture to implementation and staffing,
+                    we help teams move faster with clear execution and production-ready outcomes.
                 </p>
 
                 <div className="grid aboutGrid">
                     <div className="card aboutCard">
                         <div className="kicker">What we do</div>
-                        <div className="headline">Engineering that ships.</div>
+                        <div className="headline">Build, modernize, and scale.</div>
                         <p className="copy">
-                            From microservices to cloud-native deployments, we build systems that are maintainable,
-                            testable, and ready to scale. No duct-tape architecture.
+                            We design and deliver cloud-ready systems, applications, and data platforms — built to be
+                            maintainable, secure, and ready for growth.
                         </p>
                     </div>
 
                     <div className="card aboutCard">
                         <div className="kicker">How we work</div>
-                        <div className="headline">Agile + stakeholder clarity.</div>
+                        <div className="headline">Consultative + delivery-driven.</div>
                         <p className="copy">
-                            Tight stakeholder touchpoints, frequent demos, and fast feedback loops — so delivery is
-                            aligned and predictable, not chaotic.
+                            We start with clarity: requirements, architecture, timelines, and measurable goals. Then we
+                            execute with agile delivery, frequent touchpoints, and fast feedback loops.
                         </p>
                     </div>
 
                     <div className="card aboutCard">
-                        <div className="kicker">What you get</div>
-                        <div className="headline">Secure & scalable outcomes.</div>
+                        <div className="kicker">How we support</div>
+                        <div className="headline">Consulting & staffing that fits.</div>
                         <p className="copy">
-                            Quality-first code standards, thoughtful testing, and cloud best practices — built for
-                            performance and long-term reliability.
+                            Need expertise or extra capacity? We provide skilled consultants, business analysts, and
+                            vetted engineers to support initiatives locally and nationally — contract or contract-to-hire.
                         </p>
                     </div>
                 </div>

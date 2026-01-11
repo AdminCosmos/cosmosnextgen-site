@@ -6,7 +6,7 @@ import WhyUs from "./components/WhyUs.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 
-export default function App() {
+export default function Home() {
     return (
         <div className="app">
             <Navbar />
