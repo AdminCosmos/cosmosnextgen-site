@@ -13,7 +13,10 @@ export default function Navbar() {
 
           {/* BRAND */}
           <a href="#home" className="brand" aria-label="COSMOS Home">
-            <span className="brandText">COSMOS</span>
+            <div className="brandStack">
+              <span className="brandText">COSMOS</span>
+              <span className="brandTag">Building the NextGen</span>
+            </div>
           </a>
 
           {/* LINKS */}
@@ -62,24 +65,57 @@ export default function Navbar() {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding: 8px 20px;   /* THIN BAR */
+  padding: 8px 20px;
 }
 
 /* ===== BRAND ===== */
 .brand{
   text-decoration:none;
-  font-weight: 900;
-  letter-spacing: 0.12em;
+}
+
+.brandStack{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
 }
 
 .brandText{
-  background: linear-gradient(90deg, #1a9fb5 0%, #ff6b35 50%, #f77f00 100%);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+background: linear-gradient(
+  90deg,
+  #1a9fb5 0%,     /* blue */
+  #1a9fb5 20%,    /* linger on blue */
+  #ff6b35 45%,    /* coral */
+  #f77f00 65%,    /* orange */
+  #1a9fb5 85%,    /* back to blue */
+  #1a9fb5 100%    /* smooth loop */
+);
+
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-size: 22px;
-  letter-spacing: 0.08em;
-  font-weight: 900;
+
+  background-size: 200% auto;
+  animation: shine 4s linear infinite;
+
+  text-shadow:
+    0 0 12px rgba(255,107,53,0.35),
+    0 0 22px rgba(26,159,181,0.25);
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.brandTag{
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(27,31,59,0.65);
+  margin-top: 2px;
 }
 
 /* ===== LINKS ===== */
@@ -113,6 +149,7 @@ export default function Navbar() {
 /* ===== MOBILE ===== */
 @media (max-width: 900px){
   .links{ display:none; }
+  .brandTag{ font-size: 9px; }
 }
 
       `}</style>

@@ -129,13 +129,16 @@ export default function Hero() {
 }
 
 .btnGhost{
+  background: linear-gradient(135deg, #6cf2ff, #7c4dff);
   padding: 14px 26px;
   border-radius: 14px;
-  border: 1px solid rgba(124,77,255,0.35);
-  color: #4a3aff;
+  color: #000;
+  font-weight: 700;
   text-decoration: none;
-  background: rgba(255,255,255,0.6);
+  border: none;
+  box-shadow: 0 10px 40px rgba(124,77,255,0.25);
 }
+
 
 /* ===== STATS ===== */
 .heroStats{
