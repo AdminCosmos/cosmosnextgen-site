@@ -22,21 +22,26 @@ export default function Contact() {
     setStatusMsg("");
 
     try {
-      const url = new URL("/api/contact", window.location.origin);
-
-      const res = await fetch(url.toString(), {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
+      // Safely read text first (works even if server returns HTML)
+      const raw = await res.text();
+      let data = {};
+      try {
+        data = JSON.parse(raw);
+      } catch {
+        // Not JSON (likely HTML error page)
+      }
 
       if (res.ok) {
         setStatusMsg("✅ Message sent successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
-        setStatusMsg(data?.error || "❌ Failed to send message.");
+        setStatusMsg(data.error || `❌ Failed (${res.status}). ${raw.slice(0, 120)}`);
       }
     } catch (err) {
       console.error(err);
@@ -116,6 +121,7 @@ export default function Contact() {
 
         .contactForm button:disabled {
           opacity: 0.7;
+          cursor: not-allowed;
         }
 
         .statusMsg {
@@ -164,6 +170,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  disabled={loading}
               />
 
               <input
@@ -173,14 +180,17 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  disabled={loading}
               />
 
               <input
+                  type="tel"
                   name="phone"
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleChange}
                   required
+                  disabled={loading}
               />
 
               <textarea
@@ -189,6 +199,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  disabled={loading}
               />
 
               <button type="submit" disabled={loading}>
