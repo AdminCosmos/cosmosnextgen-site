@@ -5,7 +5,7 @@ export default function Hero() {
 
           {/* LEFT CONTENT */}
           <div>
-            <div className="pill">COSMOS NextGen IT LLC • Austin, TX</div>
+            {/*<div className="pill">COSMOS NextGen IT LLC • Austin, TX</div>*/}
 
             <h1 className="heroTitle">
               Building the <span className="glow">NextGen</span>.
