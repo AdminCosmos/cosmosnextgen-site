@@ -1,35 +1,23 @@
 const services = [
 	{
 		title: "Consulting",
-		desc: "Architecture reviews, delivery strategy, cloud guidance, and technical leadership to unblock teams fast.",
+		desc: "Experienced software consultants and analysts who partner with you to design, build, and deliver solutions that move the business forward.",
 	},
 	{
 		title: "Staffing",
-		desc: "Vetted developers and agile pods — contract or contract-to-hire—to scale delivery without sacrificing quality.",
+		desc: "High-quality IT talent for fast-moving teams - contract, contract-to-hire, or direct placement across local and national engagements.",
 	},
 	{
-		title: "Microservices",
-		desc: "Independently deployable services with clean boundaries, observability, and scale-ready design.",
-	},
-	{
-		title: "DevOps",
-		desc: "CI/CD pipelines, automation, infra hygiene, and fast, repeatable deployments.",
-	},
-	{
-		title: "Cloud Services",
-		desc: "AWS, Azure, GCP — architecture, migrations, cost optimization, security baselines.",
-	},
-	{
-		title: "App Development",
-		desc: "Modern web & mobile applications built with performance, reliability, and UX in mind.",
-	},
-	{
-		title: "UI/UX Design",
-		desc: "Design systems, wireframes, and clean UI patterns that users actually love using.",
+		title: "Upskill",
+		desc: "We provide practical technology training and upskilling programs to help teams adopt modern platforms, tools, and best practices with confidence.",
 	},
 	{
 		title: "Data Engineering / AI",
 		desc: "Pipelines, warehousing, analytics foundations, ML enablement, and production-grade data systems.",
+	},
+	{
+		title: "Cloud Services",
+		desc: "AWS, Azure, GCP — architecture, migrations, cost optimization, security baselines.",
 	},
 ];
 
