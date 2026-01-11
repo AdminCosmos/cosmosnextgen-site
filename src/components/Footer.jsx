@@ -12,18 +12,23 @@ export default function Footer() {
 
           <div className="footerCenter">
             <div className="contactInfo">
-            <div className="infoItem">
-              <span className="label">📍 Address</span>
-              <p className="infoText">
-                5900 Balcones Drive, Suite 100
-                <br />
-                Austin, TX 78731
-              </p>
-            </div>
+
+              <div className="infoItem">
+                <span className="label">📍 Address</span>
+                <p className="infoText">
+                  <strong>COSMOS NextGen IT LLC</strong>
+                  <br />
+                  5900 Balcones Drive, Suite 100
+                  <br />
+                  Austin, TX 78731
+                </p>
+              </div>
+
               <div className="infoItem">
                 <span className="label">📞 Phone</span>
                 <a href="tel:2103909950">210.390.9950</a>
               </div>
+
             </div>
           </div>
 
