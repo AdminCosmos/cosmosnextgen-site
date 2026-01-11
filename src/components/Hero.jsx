@@ -12,8 +12,8 @@ export default function Hero() {
             </h1>
 
             <p className="heroSub">
-              Product engineering, cloud platforms, and modern software — built to scale.
-              We help teams ship secure, reliable systems with speed and clean standards.
+              Product engineering, cloud platforms, and consulting & staffing — built to scale.
+              From strategy to delivery to talent, we help teams ship secure, reliable systems fast.
             </p>
 
             <div className="heroActions">
@@ -29,9 +29,9 @@ export default function Hero() {
               </div>
 
               <div className="statCard">
-                <div className="statTop">Delivery</div>
-                <div className="statBig">Agile • Fast • Clean</div>
-                <div className="statSub">Quality-first, scalable systems</div>
+                <div className="statTop">Consulting & Staffing</div>
+                <div className="statBig">Advisory • Teams • Talent</div>
+                <div className="statSub">Architecture guidance + vetted engineers, on-demand</div>
               </div>
             </div>
           </div>
