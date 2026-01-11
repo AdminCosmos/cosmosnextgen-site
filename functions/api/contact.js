@@ -1,3 +1,5 @@
+// functions/api/contact.js
+
 export async function onRequestPost(context) {
     try {
         const body = await context.request.json();
@@ -14,50 +16,58 @@ export async function onRequestPost(context) {
             });
         }
 
-        const payload = {
-            personalizations: [
-                {
-                    to: [{ email: "hr@cosmosnextgen.com", name: "COSMOS HR" }],
-                    subject: `New message from COSMOS website: ${name}`,
-                },
-            ],
-            from: {
-                // Keep this domain-based. Random gmail/yahoo often fails with MailChannels.
-                email: "no-reply@cosmosnextgen.com",
-                name: "COSMOS Website",
-            },
-            reply_to: {
-                email,
-                name,
-            },
-            content: [
-                {
-                    type: "text/plain",
-                    value:
-                        `New contact form submission:\n\n` +
-                        `Name: ${name}\n` +
-                        `Email: ${email}\n` +
-                        `Phone: ${phone}\n\n` +
-                        `Message:\n${message}\n`,
-                },
-            ],
-        };
-
-        const res = await fetch("https://api.mailchannels.net/tx/v1/send", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-        });
-
-        if (!res.ok) {
-            const txt = await res.text().catch(() => "");
-            return new Response(JSON.stringify({ error: "Email send failed.", detail: txt }), {
-                status: 500,
-                headers: { "Content-Type": "application/json" },
-            });
+        const apiKey = context.env.RESEND_API_KEY;
+        if (!apiKey) {
+            return new Response(
+                JSON.stringify({ error: "Server misconfigured: missing RESEND_API_KEY" }),
+                { status: 500, headers: { "Content-Type": "application/json" } }
+            );
         }
 
-        return new Response(JSON.stringify({ ok: true }), {
+        // IMPORTANT:
+        // Use a domain email you control for "from".
+        // This does NOT need to be a real mailbox/inbox — it just needs domain auth (SPF/DKIM via Resend).
+        const fromEmail = "no-reply@cosmosnextgen.com";
+
+        const subject = `New message from COSMOS website: ${name}`;
+
+        const text =
+            `New contact form submission:\n\n` +
+            `Name: ${name}\n` +
+            `Email: ${email}\n` +
+            `Phone: ${phone}\n\n` +
+            `Message:\n${message}\n`;
+
+        const res = await fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${apiKey}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                from: `COSMOS Website <${fromEmail}>`,
+                to: ["hr@cosmosnextgen.com"],
+                reply_to: email,
+                subject,
+                text,
+            }),
+        });
+
+        const raw = await res.text();
+        let data = {};
+        try { data = JSON.parse(raw); } catch {}
+
+        if (!res.ok) {
+            return new Response(
+                JSON.stringify({
+                    error: "Email send failed.",
+                    detail: data || raw,
+                }),
+                { status: 500, headers: { "Content-Type": "application/json" } }
+            );
+        }
+
+        return new Response(JSON.stringify({ ok: true, id: data?.id }), {
             status: 200,
             headers: { "Content-Type": "application/json" },
         });
@@ -69,7 +79,6 @@ export async function onRequestPost(context) {
     }
 }
 
-// Optional: make GET friendly instead of 405 confusion
 export async function onRequestGet() {
     return new Response(JSON.stringify({ ok: true, hint: "POST to this endpoint." }), {
         status: 200,
