@@ -10,10 +10,16 @@ export default function Navbar() {
   return (
       <header className="navWrap">
         <div className="container nav">
+
+          {/* BRAND */}
           <a href="#home" className="brand" aria-label="COSMOS Home">
-            <img src="/images/logo.png" alt="COSMOS Logo" className="brandLogo" />
+            <div className="brandStack">
+              <span className="brandText">COSMOS</span>
+              <span className="brandTag">Building the NextGen</span>
+            </div>
           </a>
 
+          {/* LINKS */}
           <nav className="links" aria-label="Primary">
             {nav.map((n) => (
                 <a key={n.id} href={`#${n.id}`} className="navLink">
@@ -22,116 +28,130 @@ export default function Navbar() {
             ))}
           </nav>
 
+          {/* CTA */}
           <a href="#contact" className="btn btn-primary navCta">
-            Contact Us
+            Contact
           </a>
         </div>
 
+        {/* ================= STYLES ================= */}
         <style>{`
-        .navWrap{
-          position: sticky;
-          top: 0;
-          z-index: 50;
-          backdrop-filter: blur(14px);
-          background: rgba(15, 14, 26, 0.7);
-          border-bottom: 1px solid rgba(26, 159, 181, 0.15);
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-          animation: slideDown 0.6s ease-out;
-          transition: all 0.4s ease;
-        }
 
-        @keyframes slideDown {
-          from {
-            transform: translateY(-100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
+/* ===== WRAP ===== */
+.navWrap{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.78);
+  border-bottom: 1px solid rgba(124,77,255,0.18);
+  box-shadow: 0 6px 18px rgba(124,77,255,0.12);
+  animation: slideDown 0.5s ease-out;
+  transition: all 0.3s ease;
+}
 
-        .navWrap:hover {
-          background: rgba(15, 14, 26, 0.9);
-          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-        }
-        .nav{
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
-          padding: 14px 20px;
-        }
-        .brand{
-          display:flex;
-          flex-direction:row;
-          gap:12px;
-          align-items:center;
-          transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        
-        .brand:hover {
-          transform: scale(1.08) rotate(1deg);
-          filter: drop-shadow(0 0 12px rgba(255, 107, 53, 0.4));
-        }
-        
-        .brandLogo {
-          /* doubled on desktop for stronger branding */
-          height: 96px;
-           width: auto;
-           object-fit: contain;
-           border-radius: 6px;
-           box-shadow: 0 2px 8px rgba(255, 107, 53, 0.15);
-           transition: all 0.4s ease;
-         }
-        
-        .brand:hover .brandLogo {
-          box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
-          transform: translateY(-2px);
-        }
-        
-        .links{
-          display:flex;
-          gap: 18px;
-          align-items:center;
-        }
-        .navLink{
-          color: rgba(232, 230, 225, 0.75);
-          font-size: 13px;
-          padding: 8px 16px;
-          border-radius: 6px;
-          transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-          position: relative;
-          font-weight: 500;
-        }
+.navWrap:hover{
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 10px 28px rgba(124,77,255,0.2);
+}
 
-        .navLink::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: linear-gradient(90deg, #ff6b35, #1a9fb5);
-          transition: width 0.4s ease;
-        }
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
-        .navLink:hover {
-          color: #1a9fb5;
-          background: rgba(26, 159, 181, 0.1);
-        }
+/* ===== INNER ===== */
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 8px 20px;
+}
 
-        .navLink:hover::after {
-          width: 100%;
-        }
-        .navCta{
-          padding: 10px 14px;
-          font-size: 13px;
-        }
-        @media (max-width: 900px){
-          .links{ display:none; }
-          /* keep the logo usable on smaller screens */
-          .brandLogo { height: 56px; }
-        }
+/* ===== BRAND ===== */
+.brand{
+  text-decoration:none;
+}
+
+.brandStack{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+}
+
+.brandText{
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+background: linear-gradient(
+  90deg,
+  #1a9fb5 0%,     /* blue */
+  #1a9fb5 20%,    /* linger on blue */
+  #ff6b35 45%,    /* coral */
+  #f77f00 65%,    /* orange */
+  #1a9fb5 85%,    /* back to blue */
+  #1a9fb5 100%    /* smooth loop */
+);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  background-size: 200% auto;
+  animation: shine 4s linear infinite;
+
+  text-shadow:
+    0 0 12px rgba(255,107,53,0.35),
+    0 0 22px rgba(26,159,181,0.25);
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.brandTag{
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(27,31,59,0.65);
+  margin-top: 2px;
+}
+
+/* ===== LINKS ===== */
+.links{
+  display:flex;
+  gap: 16px;
+  align-items:center;
+}
+
+.navLink{
+  color: rgba(27,31,59,0.75);
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all .25s ease;
+  font-weight: 500;
+}
+
+.navLink:hover{
+  color: #4a3aff;
+  background: rgba(124,77,255,0.12);
+}
+
+/* ===== CTA ===== */
+.navCta{
+  padding: 8px 14px;
+  font-size: 12px;
+  border-radius: 999px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px){
+  .links{ display:none; }
+  .brandTag{ font-size: 9px; }
+}
+
       `}</style>
       </header>
   );

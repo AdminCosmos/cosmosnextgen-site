@@ -10,7 +10,7 @@ const points = [
 
 export default function WhyUs() {
   return (
-      <section id="why" className="section">
+      <section id="why" className="section section-light">
         <div className="container">
           <h2 className="section-title">Why COSMOS</h2>
           <p className="section-subtitle">
@@ -52,11 +52,11 @@ export default function WhyUs() {
           font-weight: 700;
           letter-spacing: -0.01em;
           margin-bottom: 12px;
-          color: #e8e6e1;
+          color: #181a20; /* much darker */
           font-size: 18px;
         }
         .whyDesc{
-          color: rgba(232, 230, 225, 0.7);
+          color: #23242a; /* much darker */
           line-height: 1.7;
           font-size: 15px;
           margin: 0;

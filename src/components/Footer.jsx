@@ -78,10 +78,10 @@ export default function Footer() {
           letter-spacing: 0.10em;
           font-size: 13px;
           margin-bottom: 0px;
-          color: #2d2415;
+          color: #181a20; /* much darker */
         }
         .footerSub{
-          color: rgba(45, 36, 21, 0.6);
+          color: #23242a; /* much darker */
           font-size: 13px;
         }
         
@@ -104,13 +104,13 @@ export default function Footer() {
         .infoItem .label {
           font-size: 12px;
           font-weight: 600;
-          color: rgba(45, 36, 21, 0.6);
+          color: #23242a; /* much darker */
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
         
         .infoItem a {
-          color: rgba(45, 36, 21, 0.8);
+          color: #181a20; /* much darker */
           font-size: 13px;
           text-decoration: none;
           transition: all 0.3s ease;
@@ -118,11 +118,11 @@ export default function Footer() {
         }
         
         .infoItem a:hover {
-          color: #ff8c42;
+          color: #1a9fb5;
         }
 
         .infoText {
-          color: rgba(45, 36, 21, 0.75);
+          color: #23242a; /* much darker */
           font-size: 13px;
           line-height: 1.4;
           margin: 0;
@@ -134,7 +134,7 @@ export default function Footer() {
           flex-wrap: wrap;
         }
         .footerRight a{
-          color: rgba(45, 36, 21, 0.7);
+          color: #23242a; /* much darker */
           font-size: 13px;
         }
         .footerRight a:hover{
@@ -144,14 +144,14 @@ export default function Footer() {
         }
         .footerBottom{
           padding-top: 12px;
-          color: rgba(45, 36, 21, 0.5);
+          color: #23242a; /* much darker */
           font-size: 12px;
           border-top: 1px solid rgba(26, 159, 181, 0.1);
         }
-        // ...existing code...
-        .infoItem a:hover {
-          color: #1a9fb5;
-        }
+        @media (max-width: 768px) {
+          .footerInner {
+            flex-direction: column;
+            align-items: center;
             text-align: center;
           }
           

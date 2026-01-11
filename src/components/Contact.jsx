@@ -128,7 +128,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact">
+      <section id="contact" className="section section-light">
       <style>{`
         .contact {
           padding: 100px 20px;
@@ -188,15 +188,13 @@ export default function Contact() {
           font-weight: 700;
           text-align: center;
           margin-bottom: 16px;
-          background: linear-gradient(135deg, #ff6b35 0%, #f77f00 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          background: none;
+          color: #181a20; /* much darker */
         }
 
         .contact-subtitle {
           text-align: center;
-          color: rgba(45, 36, 21, 0.7);
+          color: #23242a; /* much darker for contrast */
           font-size: 18px;
           margin-bottom: 60px;
           line-height: 1.8;
@@ -247,12 +245,9 @@ export default function Contact() {
         .contactDetails h3 {
           font-size: 24px;
           font-weight: 700;
-          color: #1a9fb5;
+          color: #181a20; /* much darker */
           margin-bottom: 8px;
-          background: linear-gradient(135deg, #1a9fb5 0%, #ff6b35 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          background: none;
         }
 
         .detailItem {
@@ -274,7 +269,7 @@ export default function Contact() {
         .detailLabel {
           font-size: 0.85rem;
           font-weight: 600;
-          color: rgba(45, 36, 21, 0.6);
+          color: #23242a; /* much darker for contrast */
           text-transform: uppercase;
           letter-spacing: 0.05em;
           margin-bottom: 6px;
@@ -282,7 +277,7 @@ export default function Contact() {
         }
 
         .detailItem a {
-          color: rgba(45, 36, 21, 0.85);
+          color: #181a20; /* much darker for contrast */
           text-decoration: none;
           font-size: 1rem;
           line-height: 1.5;
@@ -294,7 +289,7 @@ export default function Contact() {
         }
 
         .detailText {
-          color: rgba(45, 36, 21, 0.8);
+          color: #23242a; /* much darker for contrast */
           font-size: 1rem;
           line-height: 1.5;
           margin: 0;
@@ -307,7 +302,7 @@ export default function Contact() {
           background: rgba(255, 255, 255, 0.7);
           border: 1.5px solid rgba(200, 150, 100, 0.3);
           border-radius: 10px;
-          color: #2d2415;
+          color: #181a20; /* much darker for contrast */
           font-size: 1rem;
           font-family: inherit;
           transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -316,7 +311,7 @@ export default function Contact() {
 
         .contactForm input::placeholder,
         .contactForm textarea::placeholder {
-          color: rgba(45, 36, 21, 0.5);
+          color: #555; /* darker placeholder for visibility */
           transition: color 0.3s ease;
         }
 
@@ -332,7 +327,7 @@ export default function Contact() {
 
         .contactForm input:focus::placeholder,
         .contactForm textarea:focus::placeholder {
-          color: rgba(45, 36, 21, 0.3);
+          color: #bbb;
         }
 
         .contactForm textarea {
@@ -344,7 +339,7 @@ export default function Contact() {
         .contactForm button {
           padding: 14px 32px;
           background: linear-gradient(135deg, #ff6b35 0%, #f77f00 100%);
-          color: white;
+          color: #fff; /* ensure button text is white */
           border: none;
           border-radius: 10px;
           font-size: 1.05rem;
@@ -381,7 +376,7 @@ export default function Contact() {
           font-weight: 500;
           animation: slideIn 0.3s ease;
           background: rgba(100, 200, 100, 0.15);
-          color: #4ade80;
+          color: #166534; /* much darker green for contrast */
           border: 1px solid rgba(100, 200, 100, 0.3);
         }
 

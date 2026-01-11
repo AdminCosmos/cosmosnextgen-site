@@ -27,7 +27,7 @@ const services = [
 
 export default function Services() {
 	return (
-		<section id="services" className="section">
+		<section id="services" className="section section-light">
 			<div className="container">
 				<h2 className="section-title">Services</h2>
 				<p className="section-subtitle">
@@ -108,12 +108,12 @@ export default function Services() {
           margin: 0;
           font-size: 18px;
           letter-spacing: -0.01em;
-          color: #e8e6e1;
+          color: #181a20; /* much darker */
           font-weight: 600;
         }
         .svcDesc{
           margin: 0;
-          color: rgba(232, 230, 225, 0.7);
+          color: #23242a; /* much darker */
           line-height: 1.7;
           font-size: 15px;
         }
