@@ -4,9 +4,9 @@
   --card: rgba(255, 107, 53, 0.1);
   --card2: rgba(26, 159, 181, 0.1);
   --stroke: rgba(26, 159, 181, 0.25);
-  --text: #e8e6e1;
-  --muted: rgba(232, 230, 225, 0.75);
-  --muted2: rgba(232, 230, 225, 0.6);
+  --text: #181a20;         /* darker text */
+  --muted: #23242a;        /* darker muted */
+  --muted2: #3a3b40;       /* darker muted2 */
   --glow: rgba(255, 107, 53, 0.6);
   --glow2: rgba(26, 159, 181, 0.5);
   --accent: #ff6b35;
@@ -97,7 +97,7 @@ a {
   font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0 0 20px;
-  color: #e8e6e1;
+  color: #181a20; /* darker */
 }
 
 .section-subtitle {
@@ -221,4 +221,81 @@ a {
   .section-title {
     font-size: 32px;
   }
+}
+
+/* =========================
+   LIGHT SECTIONS (About, Services, Why, Contact)
+========================= */
+
+.section-light{
+  background:
+          radial-gradient(circle at 20% -40%, rgba(124,77,255,0.08) 0%, transparent 60%),
+          radial-gradient(circle at 80% -30%, rgba(0,209,255,0.10) 0%, transparent 60%),
+          linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+}
+
+/* Text colors inside light sections */
+.section-light .section-title{
+  color: #181a20; /* darker */
+}
+
+.section-light .section-subtitle,
+.section-light p,
+.section-light li{
+  color: #23242a; /* darker */
+}
+
+/* Light glass cards */
+.section-light .card{
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(124,77,255,0.25);
+  box-shadow: 0 12px 40px rgba(124,77,255,0.18);
+  backdrop-filter: blur(14px);
+}
+
+/* Buttons in light sections */
+.section-light .btn{
+  background: rgba(255,255,255,0.7);
+  color: #4a3aff;
+  border: 1px solid rgba(124,77,255,0.35);
+}
+
+.section-light .btn:hover{
+  background: rgba(124,77,255,0.12);
+  box-shadow: 0 14px 40px rgba(124,77,255,0.25);
+}
+/* =========================
+   FORCE DARK TEXT IN LIGHT SECTIONS
+========================= */
+
+.section-light,
+.section-light * {
+  color: #181a20 !important; /* force all text much darker */
+}
+
+/* subtitles / paragraphs slightly muted */
+.section-light p,
+.section-light li,
+.section-light .section-subtitle {
+  color: #23242a !important;
+}
+
+/* headings */
+.section-light h1,
+.section-light h2,
+.section-light h3,
+.section-light .section-title {
+  color: #181a20 !important;
+}
+
+/* buttons inside light sections */
+.section-light .btn{
+  background: rgba(255,255,255,0.75);
+  color: #4a3aff;
+  border: 1px solid rgba(124,77,255,0.35);
+}
+
+.section-light .btn:hover{
+  background: rgba(124,77,255,0.12);
+  box-shadow: 0 14px 40px rgba(124,77,255,0.25);
 }

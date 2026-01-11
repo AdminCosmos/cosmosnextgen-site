@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <section id="about" className="section">
+        <section id="about" className="section section-light">
             <div className="container">
                 <h2 className="section-title">About Us</h2>
                 <p className="section-subtitle">
@@ -72,11 +72,11 @@ export default function About() {
           font-weight: 700;
           letter-spacing: -0.01em;
           margin-bottom: 12px;
-          color: #e8e6e1;
+          color: #181a20; /* much darker */
         }
         .copy{
           margin: 0;
-          color: rgba(232, 230, 225, 0.7);
+          color: #23242a; /* much darker */
           line-height: 1.7;
           font-size: 15px;
         }
