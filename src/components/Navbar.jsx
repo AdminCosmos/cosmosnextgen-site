@@ -1,13 +1,23 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
+  const [open, setOpen] = React.useState(false);
+  const location = useLocation();
+
   const nav = [
     { label: "Home", href: "/#home" },
     { label: "About Us", href: "/#about" },
     { label: "Services", href: "/#services" },
-    { label: "Training", to: "/training" }, // real page route
+    { label: "Training", to: "/training" },
     { label: "Why COSMOS", href: "/#why" },
+    { label: "Contact", href: "/#contact" },
   ];
+
+  // Close the mobile menu whenever the route changes
+  React.useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   return (
       <header className="navWrap">
@@ -20,9 +30,9 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* LINKS */}
-          <nav className="links" aria-label="Primary">
-            {nav.map((n) =>
+          {/* DESKTOP LINKS */}
+          <nav className="links desktop" aria-label="Primary">
+            {nav.slice(0, 5).map((n) =>
                 n.to ? (
                     <Link key={n.label} to={n.to} className="navLink">
                       {n.label}
@@ -35,11 +45,52 @@ export default function Navbar() {
             )}
           </nav>
 
-          {/* CTA */}
-          <a href="/#contact" className="btn btn-primary navCta">
+          {/* DESKTOP CTA */}
+          <a href="/#contact" className="btn btn-primary navCta desktop">
             Contact
           </a>
+
+          {/* MOBILE HAMBURGER */}
+          <button
+              className="mobileBtn"
+              aria-label="Open menu"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+          >
+            <span className={`bar ${open ? "x1" : ""}`} />
+            <span className={`bar ${open ? "x2" : ""}`} />
+            <span className={`bar ${open ? "x3" : ""}`} />
+          </button>
         </div>
+
+        {/* MOBILE MENU */}
+        {open && (
+            <div className="mobileMenu" role="dialog" aria-label="Mobile menu">
+              <div className="mobileInner">
+                {nav.map((n) =>
+                    n.to ? (
+                        <Link
+                            key={n.label}
+                            to={n.to}
+                            className="mobileLink"
+                            onClick={() => setOpen(false)}
+                        >
+                          {n.label}
+                        </Link>
+                    ) : (
+                        <a
+                            key={n.label}
+                            href={n.href}
+                            className="mobileLink"
+                            onClick={() => setOpen(false)}
+                        >
+                          {n.label}
+                        </a>
+                    )
+                )}
+              </div>
+            </div>
+        )}
 
         <style>{`
         .navWrap{
@@ -68,16 +119,12 @@ export default function Navbar() {
           display:flex;
           align-items:center;
           justify-content:space-between;
-          padding: 8px 20px;
+          padding: 10px 20px;
+          position: relative;
         }
 
         .brand{ text-decoration:none; }
-
-        .brandStack{
-          display:flex;
-          flex-direction:column;
-          line-height:1.05;
-        }
+        .brandStack{ display:flex; flex-direction:column; line-height:1.05; }
 
         .brandText{
           font-size: 22px;
@@ -97,7 +144,6 @@ export default function Navbar() {
           -webkit-background-clip: text;
           background-clip: text;
           color: transparent;
-
           background-size: 200% auto;
           animation: shine 4s linear infinite;
 
@@ -147,8 +193,63 @@ export default function Navbar() {
           text-decoration: none;
         }
 
+        /* Mobile button */
+        .mobileBtn{
+          display:none;
+          background: transparent;
+          border: 0;
+          padding: 10px;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+
+        .bar{
+          display:block;
+          width: 22px;
+          height: 2px;
+          background: rgba(27,31,59,0.75);
+          margin: 5px 0;
+          transition: transform .2s ease, opacity .2s ease;
+        }
+        .x1{ transform: translateY(7px) rotate(45deg); }
+        .x2{ opacity: 0; }
+        .x3{ transform: translateY(-7px) rotate(-45deg); }
+
+        /* Mobile menu */
+        .mobileMenu{
+          background: rgba(255,255,255,0.92);
+          backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(124,77,255,0.18);
+          box-shadow: 0 14px 40px rgba(124,77,255,0.18);
+        }
+
+        .mobileInner{
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 14px 20px 18px;
+          display:flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .mobileLink{
+          padding: 12px 12px;
+          border-radius: 12px;
+          text-decoration: none;
+          color: rgba(27,31,59,0.8);
+          font-weight: 600;
+          transition: all .2s ease;
+        }
+
+        .mobileLink:hover{
+          background: rgba(124,77,255,0.12);
+          color: #4a3aff;
+        }
+
+        /* Responsive rules */
         @media (max-width: 900px){
-          .links{ display:none; }
+          .desktop{ display:none; }
+          .mobileBtn{ display:block; }
           .brandTag{ font-size: 9px; }
         }
       `}</style>
