@@ -17,7 +17,7 @@ export async function onRequestPost(context) {
         const payload = {
             personalizations: [
                 {
-                    to: [{ email: "admin@cosmosnextgen.com", name: "COSMOS Admin" }],
+                    to: [{ email: "hr@cosmosnextgen.com", name: "COSMOS HR" }],
                     subject: `New message from COSMOS website: ${name}`,
                 },
             ],
