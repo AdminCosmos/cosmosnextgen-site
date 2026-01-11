@@ -1,6 +1,6 @@
-export async function onRequestPost({ request }) {
+export async function onRequestPost(context) {
     try {
-        const body = await request.json();
+        const body = await context.request.json();
 
         const name = (body?.name || "").trim();
         const email = (body?.email || "").trim();
@@ -14,7 +14,7 @@ export async function onRequestPost({ request }) {
             });
         }
 
-        // MailChannels payload (Cloudflare-supported email relay)
+        // MailChannels payload
         const payload = {
             personalizations: [
                 {
@@ -23,6 +23,7 @@ export async function onRequestPost({ request }) {
                 },
             ],
             from: {
+                // IMPORTANT: keep this on YOUR domain (not gmail/yahoo)
                 email: "no-reply@cosmosnextgen.com",
                 name: "COSMOS Website",
             },
@@ -61,9 +62,8 @@ export async function onRequestPost({ request }) {
             status: 200,
             headers: { "Content-Type": "application/json" },
         });
-
     } catch (e) {
-        return new Response(JSON.stringify({ error: "Server error", detail: String(e) }), {
+        return new Response(JSON.stringify({ error: "Server error.", detail: String(e) }), {
             status: 500,
             headers: { "Content-Type": "application/json" },
         });
