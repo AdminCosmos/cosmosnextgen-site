@@ -218,10 +218,10 @@ export default function Navbar() {
 
         /* Mobile menu */
         .mobileMenu{
-          background: rgba(255,255,255,0.92);
-          backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(124,77,255,0.18);
-          box-shadow: 0 14px 40px rgba(124,77,255,0.18);
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
 
         .mobileInner{
@@ -243,8 +243,8 @@ export default function Navbar() {
         }
 
         .mobileLink:hover{
-          background: rgba(124,77,255,0.12);
-          color: #4a3aff;
+          background: rgba(26, 159, 181, 0.1);
+          color: #1a9fb5;
         }
 
         /* Responsive rules */
