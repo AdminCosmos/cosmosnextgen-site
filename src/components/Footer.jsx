@@ -38,7 +38,11 @@ export default function Footer() {
             <a href="/#services">Services</a>
             <a href="/#why">Why Us</a>
             <a href="/#contact">Contact</a>
-            <a href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer">LinkedIn Jobs & Posts</a>
+            <a className="linkedInIconLink" href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="COSMOS LinkedIn Jobs and Posts">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11.032 20.485h-2.8v-9.299h2.8v9.299zm-1.4-10.598c-.898 0-1.624-.73-1.624-1.627 0-.897.726-1.626 1.624-1.626s1.625.729 1.625 1.626c0 .897-.727 1.627-1.625 1.627zm12.432 10.598h-2.8v-4.76c0-1.137-.02-2.599-1.585-2.599-1.587 0-1.83 1.238-1.83 2.517v4.842h-2.8v-9.299h2.688v1.272h.038c.374-.707 1.287-1.45 2.649-1.45 2.833 0 3.355 1.865 3.355 4.29v5.187z"/>
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -150,6 +154,30 @@ export default function Footer() {
           color: #23242a;
           font-size: 13px;
           text-decoration: none;
+        }
+
+        .footerRight .linkedInIconLink {
+          color: #0a66c2;
+          font-size: 0;
+          border: 1px solid rgba(10, 102, 194, 0.25);
+          padding: 6px;
+          border-radius: 999px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.2s ease, transform 0.2s ease;
+          margin-left: 12px;
+        }
+
+        .footerRight .linkedInIconLink:hover {
+          background: rgba(10, 102, 194, 0.08);
+          transform: translateY(-1px);
+        }
+
+        .footerRight .linkedInIconLink svg {
+          width: 18px;
+          height: 18px;
+          color: #0a66c2;
         }
 
         .footerRight a:hover{
