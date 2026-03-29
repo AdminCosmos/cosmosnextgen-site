@@ -4,7 +4,7 @@ export default function Footer() {
         <div className="container footerInner">
           {/* LEFT */}
           <div className="footerLeft">
-            <img src="/images/logo.png" alt="COSMOS Logo" className="footerLogo" />
+            <img src="/images/cosmos-logo.png" alt="COSMOS Logo" className="footerLogo" />
             <div className="footerBrandText">
               <div className="footerBrand">COSMOS</div>
               <div className="footerSub">An E-Verify Participant</div>
