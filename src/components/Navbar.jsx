@@ -124,7 +124,7 @@ export default function Navbar() {
 
         .brand{ text-decoration:none; }
         .brandStack{ display:flex; flex-direction:row; align-items:center; gap: 12px; }
-        .navLogo{ height: 40px; width: auto; }
+        .navLogo{ height: 80px; width: auto; }
 
         .brandText{
           font-size: 26px;

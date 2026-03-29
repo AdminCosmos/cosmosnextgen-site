@@ -99,7 +99,7 @@ export default function Footer() {
         }
 
         .footerLogo {
-          height: 52px;
+          height: 80px;
           width: auto;
           object-fit: contain;
           border-radius: 12px;
