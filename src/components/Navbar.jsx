@@ -117,30 +117,106 @@ export default function Navbar() {
         .nav{
           display:flex;
           align-items:center;
-          justify-content:space-between;
-          padding: 16px 24px;
+          justify-content:space-around;
+          padding: 16px 32px;
           position: relative;
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
         .brand{ text-decoration:none; }
-        .brandStack{ display:flex; flex-direction:row; align-items:center; gap: 12px; }
-        .navLogo{ height: 80px; width: auto; }
+        .brandStack{ 
+          display:flex; 
+          flex-direction:row; 
+          align-items:center; 
+          gap: 12px;
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(10px);
+          padding: 8px 16px;
+          border-radius: 50px;
+          border: 1px solid rgba(26, 159, 181, 0.2);
+          box-shadow: 0 4px 20px rgba(26, 159, 181, 0.1);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          flex-shrink: 0;
+        }
+        .brandStack:hover {
+          background: rgba(255, 255, 255, 0.95);
+          box-shadow: 0 6px 30px rgba(26, 159, 181, 0.15);
+          transform: translateY(-1px);
+        }
+        .navLogo{ height: 50px; width: auto; }
 
         .brandText{
-          font-size: 26px;
-          font-weight: 700;
+          font-size: 22px;
+          font-weight: 900;
           letter-spacing: 0.02em;
-          color: #1a9fb5;
-          transition: all 0.3s ease;
+          background: linear-gradient(135deg, #1a9fb5 0%, #ff6b35 25%, #ffffff 50%, #ff6b35 75%, #1a9fb5 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-size: 300% 300%;
+          animation: modernFlow 4s ease-in-out infinite;
+          text-shadow:
+            0 0 10px rgba(26, 159, 181, 0.5),
+            0 0 20px rgba(255, 107, 53, 0.3),
+            0 0 30px rgba(26, 159, 181, 0.2),
+            0 2px 4px rgba(0, 0, 0, 0.1);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+        }
+
+        .brandText::before {
+          content: 'COSMOS';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 50%, #ffffff 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          z-index: -1;
         }
 
         .brandText:hover {
-          color: #ff6b35;
+          animation-duration: 2s;
+          text-shadow:
+            0 0 15px rgba(26, 159, 181, 0.8),
+            0 0 30px rgba(255, 107, 53, 0.5),
+            0 0 45px rgba(26, 159, 181, 0.3),
+            0 4px 8px rgba(0, 0, 0, 0.2);
+          transform: scale(1.02);
+        }
+
+        .brandText:hover::before {
+          opacity: 0.3;
+        }
+
+        @keyframes modernFlow {
+          0%, 100% {
+            background-position: 0% 50%;
+            filter: brightness(1) contrast(1);
+          }
+          25% {
+            background-position: 100% 0%;
+            filter: brightness(1.1) contrast(1.05);
+          }
+          50% {
+            background-position: 100% 100%;
+            filter: brightness(1.2) contrast(1.1);
+          }
+          75% {
+            background-position: 0% 100%;
+            filter: brightness(1.1) contrast(1.05);
+          }
         }
 
         .links{
           display:flex;
-          gap: 16px;
+          gap: 24px;
           align-items:center;
         }
 
@@ -187,6 +263,7 @@ export default function Navbar() {
           font-weight: 600;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           box-shadow: 0 4px 12px rgba(26, 159, 181, 0.3);
+          flex-shrink: 0;
         }
 
         .navCta:hover {
@@ -252,6 +329,9 @@ export default function Navbar() {
           .desktop{ display:none; }
           .mobileBtn{ display:block; }
           .brandTag{ font-size: 9px; }
+          .brandStack{ padding: 6px 12px; }
+          .navLogo{ height: 40px; }
+          .brandText{ font-size: 20px; }
         }
       `}</style>
       </header>
