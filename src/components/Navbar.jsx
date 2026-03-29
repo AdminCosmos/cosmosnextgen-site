@@ -129,7 +129,7 @@ export default function Navbar() {
           display:flex; 
           flex-direction:row; 
           align-items:center; 
-          gap: 8px;
+          gap: 6px;
           flex-shrink: 0;
         }
         .navLogo{ height: 45px; width: auto; }
