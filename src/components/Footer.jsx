@@ -7,7 +7,7 @@ export default function Footer() {
             <img src="/images/logo.png" alt="COSMOS Logo" className="footerLogo" />
             <div className="footerBrandText">
               <div className="footerBrand">COSMOS</div>
-              <div className="footerSub">E-Verify Participant</div>
+              <div className="footerSub">An E-Verify Participant</div>
             </div>
           </div>
 
@@ -38,6 +38,7 @@ export default function Footer() {
             <a href="/#services">Services</a>
             <a href="/#why">Why Us</a>
             <a href="/#contact">Contact</a>
+            <a href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer">LinkedIn Jobs & Posts</a>
           </div>
         </div>
 

@@ -4,7 +4,7 @@ export default function About() {
             <div className="container">
                 <h2 className="section-title">About Us</h2>
                 <p className="section-subtitle">
-                    COSMOS NextGen IT LLC partners with organizations to deliver modern software, cloud solutions,
+                    COSMOS partners with organizations to deliver modern software, cloud solutions,
                     and the right technical talent. From advisory and architecture to implementation and staffing,
                     we help teams move faster with clear execution and production-ready outcomes.
                 </p>

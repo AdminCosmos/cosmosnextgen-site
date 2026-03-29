@@ -41,7 +41,7 @@ export default function Hero() {
             <div className="orbGlow2" />
 
             <div className="orbText">
-              <div className="orbLabel">COSMIC MODERN</div>
+              <div className="orbLabel">The NextGen Engineers </div>
               <div className="orbTitle">Serious engineering.</div>
               <div className="orbSub">No fluff — just outcomes.</div>
             </div>

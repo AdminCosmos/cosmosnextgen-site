@@ -28,6 +28,15 @@ export default function Careers() {
             </p>
           </div>
         </div>
+
+        <div className="careersFooter">
+          <p>
+            Want current job openings and company updates? Follow us on LinkedIn:
+            <a href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+              https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all
+            </a>
+          </p>
+        </div>
       </div>
 
       <style>{`
@@ -60,6 +69,25 @@ export default function Careers() {
           line-height: 1.7;
           font-size: 15px;
           margin: 0;
+        }
+
+        .careersFooter {
+          margin-top: 32px;
+          border-top: 1px solid rgba(26, 159, 181, 0.2);
+          padding-top: 24px;
+        }
+
+        .careersFooter p {
+          color: #181a20;
+          font-size: 15px;
+          margin: 0;
+          line-height: 1.6;
+        }
+
+        .careersFooter a {
+          color: #1a9fb5;
+          text-decoration: underline;
+          text-underline-offset: 3px;
         }
 
         @media (max-width: 900px) {
