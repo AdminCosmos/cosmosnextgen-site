@@ -132,7 +132,7 @@ export default function Navbar() {
           gap: 12px;
           background: rgba(255, 255, 255, 0.9);
           backdrop-filter: blur(10px);
-          padding: 8px 16px;
+          padding: 3px 16px;
           border-radius: 50px;
           border: 1px solid rgba(26, 159, 181, 0.2);
           box-shadow: 0 4px 20px rgba(26, 159, 181, 0.1);
@@ -144,7 +144,7 @@ export default function Navbar() {
           box-shadow: 0 6px 30px rgba(26, 159, 181, 0.15);
           transform: translateY(-1px);
         }
-        .navLogo{ height: 50px; width: auto; }
+        .navLogo{ height: 88px; width: auto; }
 
         .brandText{
           font-size: 22px;
@@ -329,8 +329,8 @@ export default function Navbar() {
           .desktop{ display:none; }
           .mobileBtn{ display:block; }
           .brandTag{ font-size: 9px; }
-          .brandStack{ padding: 6px 12px; }
-          .navLogo{ height: 40px; }
+          .brandStack{ padding: 2px 12px; }
+          .navLogo{ height: 48px; }
           .brandText{ font-size: 20px; }
         }
       `}</style>
