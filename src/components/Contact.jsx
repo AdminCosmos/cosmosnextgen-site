@@ -111,13 +111,26 @@ export default function Contact() {
         .contactForm {
           background: var(--card);
           padding: 48px;
-          border-radius: var(--radius-xl);
+          border-radius: var(--radius-lg);
           border: 1px solid var(--stroke);
           display: flex;
           flex-direction: column;
           gap: 20px;
           backdrop-filter: blur(20px);
           box-shadow: var(--shadow);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .contactForm::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: var(--metallic);
+          opacity: 0.5;
         }
 
         .contactForm input,

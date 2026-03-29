@@ -57,7 +57,7 @@ export default function Footer() {
         <style>{`
         .footer{
           position: relative;
-          padding: 60px 0 30px;
+          padding: 80px 0 40px;
           border-top: 1px solid var(--stroke);
           background: var(--bg-secondary);
           backdrop-filter: blur(20px);
@@ -71,9 +71,9 @@ export default function Footer() {
           left: 0;
           right: 0;
           bottom: 0;
-          background-image:
-            radial-gradient(circle at 25% 25%, rgba(26, 159, 181, 0.03) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, rgba(255, 107, 53, 0.03) 0%, transparent 50%);
+          background:
+            radial-gradient(circle at 25% 25%, rgba(251, 191, 36, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
           pointer-events: none;
         }
 
