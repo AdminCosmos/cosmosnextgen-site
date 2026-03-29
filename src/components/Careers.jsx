@@ -1,6 +1,6 @@
 export default function Careers() {
   return (
-    <section className="section section-light">
+    <section id="careers" className="section section-light">
       <div className="container">
         <h2 className="section-title">Careers</h2>
         <p className="section-subtitle">
