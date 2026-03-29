@@ -19,7 +19,6 @@ function Home() {
             <Services />
             <WhyUs />
             <Contact />
-            <Careers />
         </>
     );
 }
@@ -32,6 +31,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/training" element={<Training />} />
+                <Route path="/careers" element={<Careers />} />
             </Routes>
             <Footer />
         </>
