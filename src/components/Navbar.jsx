@@ -11,7 +11,6 @@ export default function Navbar() {
     { label: "Services", href: "/#services" },
     { label: "Training", to: "/training" },
     { label: "Why COSMOS", href: "/#why" },
-    { label: "Contact", href: "/#contact" },
     { label: "Careers", href: "/#careers" },
   ];
 
@@ -33,7 +32,7 @@ export default function Navbar() {
 
           {/* DESKTOP LINKS */}
           <nav className="links desktop" aria-label="Primary">
-            {nav.slice(0, 7).map((n) =>
+            {nav.slice(0, 6).map((n) =>
                 n.to ? (
                     <Link key={n.label} to={n.to} className="navLink">
                       {n.label}
