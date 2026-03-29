@@ -31,7 +31,7 @@ export default function Careers() {
 
         <div className="careersFooter">
           <p>Want current job openings and company updates?</p>
-          <a className="btn btn-primary" href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+          <a className="linkedInBtn" href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
             Follow us on LinkedIn
           </a>
         </div>
@@ -78,14 +78,34 @@ export default function Careers() {
         .careersFooter p {
           color: #181a20;
           font-size: 15px;
-          margin: 0;
+          margin: 0 0 12px 0;
           line-height: 1.6;
         }
 
-        .careersFooter a {
-          color: #1a9fb5;
-          text-decoration: underline;
-          text-underline-offset: 3px;
+        .linkedInBtn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 10px 20px;
+          background: linear-gradient(135deg, #0a66c2, #00509d);
+          border: 1px solid rgba(10, 102, 194, 0.6);
+          border-radius: 999px;
+          color: #ffffff;
+          font-weight: 700;
+          text-decoration: none;
+          box-shadow: 0 8px 20px rgba(10, 102, 194, 0.35);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .linkedInBtn:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 12px 22px rgba(10, 102, 194, 0.45);
+        }
+
+        .linkedInBtn:active {
+          transform: translateY(0);
+          box-shadow: 0 8px 14px rgba(10, 102, 194, 0.35);
         }
 
         @media (max-width: 900px) {
