@@ -27,7 +27,6 @@ export default function Navbar() {
             <div className="brandStack">
               <img src="/images/cosmos-logo.png" alt="COSMOS Logo" className="navLogo" />
               <span className="brandText">COSMOS</span>
-              <span className="brandTag">Building the NextGen</span>
             </div>
           </a>
 
@@ -47,7 +46,7 @@ export default function Navbar() {
           </nav>
 
           {/* DESKTOP CTA */}
-          <a href="/#contact" className="btn btn-primary navCta desktop">
+          <a href="/#contact" className="navCta desktop">
             Contact
           </a>
 
@@ -98,17 +97,16 @@ export default function Navbar() {
           position: sticky;
           top: 0;
           z-index: 50;
-          backdrop-filter: blur(10px);
-          background: rgba(255,255,255,0.78);
-          border-bottom: 1px solid rgba(124,77,255,0.18);
-          box-shadow: 0 6px 18px rgba(124,77,255,0.12);
-          animation: slideDown 0.5s ease-out;
-          transition: all 0.3s ease;
+          backdrop-filter: blur(20px);
+          background: rgba(255, 255, 255, 0.85);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .navWrap:hover{
-          background: rgba(255,255,255,0.92);
-          box-shadow: 0 10px 28px rgba(124,77,255,0.2);
+          background: rgba(255, 255, 255, 0.95);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
 
         @keyframes slideDown {
@@ -120,50 +118,24 @@ export default function Navbar() {
           display:flex;
           align-items:center;
           justify-content:space-between;
-          padding: 10px 20px;
+          padding: 16px 24px;
           position: relative;
         }
 
         .brand{ text-decoration:none; }
-        .brandStack{ display:flex; flex-direction:row; align-items:center; line-height:1.05; }
-        .navLogo{ height: 32px; margin-right: 8px; }
+        .brandStack{ display:flex; flex-direction:row; align-items:center; gap: 12px; }
+        .navLogo{ height: 40px; width: auto; }
 
         .brandText{
-          font-size: 22px;
-          font-weight: 900;
-          letter-spacing: 0.08em;
-
-          background: linear-gradient(
-            90deg,
-            #2563eb 0%,
-            #2563eb 20%,
-            #ff6b35 45%,
-            #f77f00 65%,
-            #2563eb 75%,
-            #2563eb 100%
-          );
-
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          background-size: 200% auto;
-          animation: shine 4s linear infinite;
-
-          text-shadow:
-            0 0 12px rgba(255,107,53,0.35),
-            0 0 22px rgba(37,99,235,0.25);
+          font-size: 26px;
+          font-weight: 700;
+          letter-spacing: 0.02em;
+          color: #1a9fb5;
+          transition: all 0.3s ease;
         }
 
-        @keyframes shine {
-          to { background-position: 200% center; }
-        }
-
-        .brandTag{
-          font-size: 10px;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: rgba(27,31,59,0.65);
-          margin-top: 2px;
+        .brandText:hover {
+          color: #ff6b35;
         }
 
         .links{
@@ -174,25 +146,52 @@ export default function Navbar() {
 
         .navLink{
           color: rgba(27,31,59,0.75);
-          font-size: 13px;
-          padding: 6px 12px;
+          font-size: 14px;
+          padding: 8px 16px;
           border-radius: 8px;
-          transition: all .25s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           font-weight: 500;
           text-decoration: none;
+          position: relative;
           display: inline-block;
         }
 
-        .navLink:hover{
-          color: #4a3aff;
-          background: rgba(124,77,255,0.12);
+        .navLink::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #1a9fb5, #ff6b35);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transform: translateX(-50%);
+        }
+
+        .navLink:hover {
+          color: #1a9fb5;
+          background: rgba(26, 159, 181, 0.05);
+        }
+
+        .navLink:hover::before {
+          width: 100%;
         }
 
         .navCta{
-          padding: 8px 14px;
-          font-size: 12px;
-          border-radius: 999px;
+          padding: 10px 20px;
+          font-size: 14px;
+          border-radius: 50px;
           text-decoration: none;
+          background: linear-gradient(135deg, #1a9fb5, #ff6b35);
+          color: white;
+          font-weight: 600;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 12px rgba(26, 159, 181, 0.3);
+        }
+
+        .navCta:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(26, 159, 181, 0.4);
         }
 
         /* Mobile button */
