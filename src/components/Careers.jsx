@@ -14,7 +14,7 @@ export default function Careers() {
               Cosmos is an Equal Employment Opportunity employer. All qualified
               applicants will receive consideration for employment without regard
               to race, color, religion, sex, sexual orientation, gender identity,
-              national origin, disability, age, veteran status, or any other
+             s national origin, disability, age, veteran status, or any other
               characteristic protected by applicable federal, state, or local laws.
             </p>
           </div>
@@ -30,12 +30,10 @@ export default function Careers() {
         </div>
 
         <div className="careersFooter">
-          <p>
-            Want current job openings and company updates? Follow us on LinkedIn:
-            <a href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
-              https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all
-            </a>
-          </p>
+          <p>Want current job openings and company updates?</p>
+          <a className="btn btn-primary" href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+            Follow us on LinkedIn
+          </a>
         </div>
       </div>
 
