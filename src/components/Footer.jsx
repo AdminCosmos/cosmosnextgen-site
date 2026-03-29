@@ -7,7 +7,7 @@ export default function Footer() {
             <img src="/images/logo.png" alt="COSMOS Logo" className="footerLogo" />
             <div className="footerBrandText">
               <div className="footerBrand">COSMOS</div>
-              <div className="footerSub">Building the NextGen</div>
+              <div className="footerSub">E-Verify Participant</div>
             </div>
           </div>
 
