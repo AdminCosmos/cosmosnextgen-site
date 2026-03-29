@@ -25,6 +25,7 @@ export default function Navbar() {
           {/* BRAND */}
           <a href="/#home" className="brand" aria-label="COSMOS Home">
             <div className="brandStack">
+              <img src="/images/cosmos-logo.png" alt="COSMOS Logo" className="navLogo" />
               <span className="brandText">COSMOS</span>
               <span className="brandTag">Building the NextGen</span>
             </div>
@@ -124,7 +125,8 @@ export default function Navbar() {
         }
 
         .brand{ text-decoration:none; }
-        .brandStack{ display:flex; flex-direction:column; line-height:1.05; }
+        .brandStack{ display:flex; flex-direction:row; align-items:center; line-height:1.05; }
+        .navLogo{ height: 32px; margin-right: 8px; }
 
         .brandText{
           font-size: 22px;
