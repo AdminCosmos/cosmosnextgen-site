@@ -118,9 +118,9 @@ export default function Navbar() {
           display:flex;
           align-items:center;
           justify-content:space-around;
-          padding: 10px 32px;
+          padding: 10px 24px;
           position: relative;
-          max-width: 1200px;
+          max-width: 1400px;
           margin: 0 auto;
         }
 
@@ -129,7 +129,7 @@ export default function Navbar() {
           display:flex; 
           flex-direction:row; 
           align-items:center; 
-          gap: 12px;
+          gap: 8px;
           flex-shrink: 0;
         }
         .navLogo{ height: 45px; width: auto; }
@@ -149,8 +149,9 @@ export default function Navbar() {
 
         .links{
           display:flex;
-          gap: 24px;
+          gap: 20px;
           align-items:center;
+          flex-wrap: nowrap;
         }
 
         .navLink{
