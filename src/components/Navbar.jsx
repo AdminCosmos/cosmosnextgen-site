@@ -12,6 +12,7 @@ export default function Navbar() {
     { label: "Training", to: "/training" },
     { label: "Why COSMOS", href: "/#why" },
     { label: "Contact", href: "/#contact" },
+    { label: "Careers", href: "/#careers" },
   ];
 
   // Close the mobile menu whenever the route changes
