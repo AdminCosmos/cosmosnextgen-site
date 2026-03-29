@@ -49,17 +49,17 @@ export default function Services() {
         .svcGrid{
           display:grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
+          gap: 32px;
         }
         .svcCard{
-          padding: 28px;
-          transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-          background: rgba(20, 18, 40, 0.4);
-          border-radius: 12px;
-          border: 1px solid rgba(26, 159, 181, 0.2);
-          backdrop-filter: blur(10px);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          animation: cardFloat 0.8s ease-out backwards;
+          padding: 32px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          background: var(--card);
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--stroke);
+          backdrop-filter: blur(20px);
+          box-shadow: var(--shadow);
+          animation: cardFadeIn 0.6s ease-out backwards;
         }
         
         .svcCard:nth-child(1) { animation-delay: 0.1s; }
@@ -67,15 +67,11 @@ export default function Services() {
         .svcCard:nth-child(3) { animation-delay: 0.3s; }
         .svcCard:nth-child(4) { animation-delay: 0.4s; }
         .svcCard:nth-child(5) { animation-delay: 0.5s; }
-        .svcCard:nth-child(6) { animation-delay: 0.6s; }
-        .svcCard:nth-child(5) { animation-delay: 0.7s; }
-        .svcCard:nth-child(6) { animation-delay: 0.8s; }
-
         
-        @keyframes cardFloat {
+        @keyframes cardFadeIn {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
@@ -84,37 +80,36 @@ export default function Services() {
         }
         
         .svcCard:hover{
-          transform: translateY(-8px) scale(1.02);
-          border-color: rgba(255, 107, 53, 0.4);
-          background: rgba(255, 107, 53, 0.1);
-          box-shadow: 0 24px 48px rgba(255, 107, 53, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          transform: translateY(-6px);
+          border-color: var(--accent);
+          background: var(--card-hover);
+          box-shadow: var(--shadow-lg);
         }
         .svcTop{
           display:flex;
-          gap: 12px;
+          gap: 16px;
           align-items:center;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
         .svcDot{
-          width: 12px;
-          height: 12px;
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
-          background: linear-gradient(135deg, rgba(255,107,53,1) 0%, rgba(26,159,181,.8) 100%);
-          box-shadow: 0 0 16px rgba(255,107,53,0.3);
+          background: var(--accent);
           flex-shrink: 0;
         }
         .svcTitle{
           margin: 0;
-          font-size: 18px;
+          font-size: 20px;
           letter-spacing: -0.01em;
-          color: #181a20; /* much darker */
+          color: var(--text);
           font-weight: 600;
         }
         .svcDesc{
           margin: 0;
-          color: #23242a; /* much darker */
-          line-height: 1.7;
-          font-size: 15px;
+          color: var(--text-secondary);
+          line-height: 1.6;
+          font-size: 16px;
         }
         @media (max-width: 900px){
           .svcGrid{ grid-template-columns: 1fr; }

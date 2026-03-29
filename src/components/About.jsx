@@ -42,43 +42,44 @@ export default function About() {
             <style>{`
         .aboutGrid{
           grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
+          gap: 32px;
         }
         .aboutCard{
-          padding: 28px;
-          border-radius: 12px;
-          background: rgba(20, 18, 40, 0.4);
-          border: 1px solid rgba(26, 159, 181, 0.2);
-          backdrop-filter: blur(10px);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          transition: all 0.3s ease;
+          padding: 32px;
+          border-radius: var(--radius-lg);
+          background: var(--card);
+          border: 1px solid var(--stroke);
+          backdrop-filter: blur(20px);
+          box-shadow: var(--shadow);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .aboutCard:hover {
-          transform: translateY(-4px);
-          background: rgba(255, 107, 53, 0.1);
-          border-color: rgba(255, 107, 53, 0.4);
-          box-shadow: 0 16px 32px rgba(255, 107, 53, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          transform: translateY(-6px);
+          background: var(--card-hover);
+          border-color: var(--stroke-hover);
+          box-shadow: var(--shadow-lg);
         }
         .kicker{
           font-size: 12px;
-          color: #1a9fb5;
-          letter-spacing: 0.12em;
-          margin-bottom: 12px;
+          color: var(--accent);
+          letter-spacing: 0.1em;
+          margin-bottom: 16px;
           text-transform: uppercase;
           font-weight: 600;
         }
         .headline{
-          font-size: 20px;
+          font-size: 22px;
           font-weight: 700;
           letter-spacing: -0.01em;
-          margin-bottom: 12px;
-          color: #181a20; /* much darker */
+          margin-bottom: 16px;
+          color: var(--text);
+          line-height: 1.3;
         }
         .copy{
           margin: 0;
-          color: #23242a; /* much darker */
-          line-height: 1.7;
-          font-size: 15px;
+          color: var(--text-secondary);
+          line-height: 1.6;
+          font-size: 16px;
         }
         @media (max-width: 900px){
           .aboutGrid{ grid-template-columns: 1fr; }

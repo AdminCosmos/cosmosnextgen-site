@@ -91,56 +91,93 @@ export default function Training() {
 
             <style>{`
         .trainingHero{
-          padding: 110px 8% 70px;
-          background:
-            radial-gradient(circle at 30% -40%, rgba(124,77,255,0.18) 0%, transparent 55%),
-            radial-gradient(circle at 80% -30%, rgba(0,209,255,0.18) 0%, transparent 60%),
-            linear-gradient(180deg, #f6f8ff 0%, #eef2ff 100%);
+          padding: 120px 0 80px;
+          background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
+          position: relative;
+          overflow: hidden;
         }
-        .container{ max-width: 1200px; margin: 0 auto; }
-        .title{ font-size: 56px; margin: 0 0 14px; letter-spacing: -0.03em; color:#181a20; font-weight: 900; }
-        .subtitle{ margin: 0 0 26px; max-width: 760px; color:#23242a; line-height: 1.9; font-size: 18px; }
-        .ctaRow{ display:flex; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+        
+        .trainingHero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            radial-gradient(circle at 30% 40%, rgba(26, 159, 181, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 70% 60%, rgba(255, 107, 53, 0.03) 0%, transparent 50%);
+          pointer-events: none;
+        }
+        
+        .container{ max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+        .title{ font-size: 52px; margin: 0 0 20px; letter-spacing: -0.025em; color: var(--text); font-weight: 800; line-height: 1.1; }
+        .subtitle{ margin: 0 0 32px; max-width: 700px; color: var(--text-secondary); line-height: 1.6; font-size: 18px; }
+        .ctaRow{ display:flex; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
         .btnPrimary{
-          background: linear-gradient(135deg, #6cf2ff, #7c4dff);
-          padding: 14px 26px; border-radius: 14px; color: #000; font-weight: 700; text-decoration:none;
-          box-shadow: 0 10px 40px rgba(124,77,255,0.25);
+          background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+          padding: 16px 32px; 
+          border-radius: 50px; 
+          color: white; 
+          font-weight: 600; 
+          text-decoration:none;
+          box-shadow: var(--shadow);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           display:inline-block;
+        }
+        .btnPrimary:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-lg);
         }
         .btnGhost{
-          background: rgba(255,255,255,0.7);
-          padding: 14px 26px; border-radius: 14px; color:#181a20; font-weight:700; text-decoration:none;
-          border: 1px solid rgba(124,77,255,0.25);
+          background: var(--card);
+          padding: 16px 32px; 
+          border-radius: 50px; 
+          color: var(--text); 
+          font-weight: 600; 
+          text-decoration:none;
+          border: 2px solid var(--stroke);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           display:inline-block;
         }
-        .pillRow{ display:flex; gap: 10px; flex-wrap: wrap; }
-        .pill{
-          padding: 8px 12px; border-radius: 999px;
-          background: rgba(124,77,255,0.12);
-          border: 1px solid rgba(124,77,255,0.25);
-          color: #4a3aff; font-size: 12px; font-weight: 600;
+        .btnGhost:hover {
+          background: var(--accent);
+          color: white;
+          border-color: var(--accent);
+          transform: translateY(-2px);
         }
-        .trainingGrid{ grid-template-columns: repeat(2, 1fr); gap: 28px; }
-        .trainingCard, .howCard{
-          padding: 28px;
-          border-radius: 12px;
-          background: rgba(20, 18, 40, 0.4);
-          border: 1px solid rgba(26, 159, 181, 0.2);
+        .pillRow{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+        .pill{
+          padding: 10px 16px; 
+          border-radius: 50px;
+          background: var(--card);
+          border: 1px solid var(--stroke);
+          color: var(--text-secondary); 
+          font-size: 14px; 
+          font-weight: 500;
           backdrop-filter: blur(10px);
-          box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-          transition: all 0.3s ease;
+        }
+        .trainingGrid{ grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        .trainingCard, .howCard{
+          padding: 32px;
+          border-radius: var(--radius-lg);
+          background: var(--card);
+          border: 1px solid var(--stroke);
+          backdrop-filter: blur(20px);
+          box-shadow: var(--shadow);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .trainingCard:hover, .howCard:hover{
-          transform: translateY(-4px);
-          background: rgba(255, 107, 53, 0.1);
-          border-color: rgba(255, 107, 53, 0.4);
-          box-shadow: 0 16px 32px rgba(255,107,53,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+          transform: translateY(-6px);
+          background: var(--card-hover);
+          border-color: var(--stroke-hover);
+          box-shadow: var(--shadow-lg);
         }
-        .kicker{ font-size: 12px; color: #1a9fb5; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; margin-bottom: 10px; }
-        .headline{ font-size: 20px; font-weight: 800; color:#181a20; margin-bottom: 10px; }
-        .copy{ margin: 0; color:#23242a; line-height: 1.7; font-size: 15px; }
-        .howGrid{ grid-template-columns: repeat(3, 1fr); gap: 18px; }
-        .bottomCta{ margin-top: 26px; display:flex; }
+        .kicker{ font-size: 12px; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+        .headline{ font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 16px; line-height: 1.3; }
+        .copy{ margin: 0; color: var(--text-secondary); line-height: 1.6; font-size: 16px; }
+        .howGrid{ grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .bottomCta{ margin-top: 40px; display:flex; justify-content: center; }
         @media(max-width: 900px){
           .title{ font-size: 42px; }
           .trainingGrid{ grid-template-columns: 1fr; }

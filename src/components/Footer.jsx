@@ -50,7 +50,7 @@ export default function Footer() {
           <div className="footerBottomContent">
             <span>© {new Date().getFullYear()} COSMOS NextGen IT LLC</span>
             <span className="footerDivider">•</span>
-            <span>Building the NextGen</span>
+            <span>Innovating Tomorrow's Technology</span>
           </div>
         </div>
 
@@ -58,11 +58,8 @@ export default function Footer() {
         .footer{
           position: relative;
           padding: 60px 0 30px;
-          border-top: 1px solid rgba(26, 159, 181, 0.2);
-          background:
-            linear-gradient(135deg, rgba(250, 247, 242, 0.95) 0%, rgba(245, 243, 238, 0.95) 100%),
-            radial-gradient(circle at 20% 80%, rgba(26, 159, 181, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.06) 0%, transparent 50%);
+          border-top: 1px solid var(--stroke);
+          background: var(--bg-secondary);
           backdrop-filter: blur(20px);
           overflow: hidden;
         }
@@ -102,14 +99,14 @@ export default function Footer() {
           height: 80px;
           width: auto;
           object-fit: contain;
-          border-radius: 12px;
-          box-shadow: 0 4px 16px rgba(255, 140, 66, 0.2);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          border-radius: var(--radius);
+          box-shadow: var(--shadow);
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .footerLogo:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(255, 140, 66, 0.3);
+          box-shadow: var(--shadow-lg);
         }
 
         .footerBrandText {
@@ -122,15 +119,15 @@ export default function Footer() {
           font-weight: 900;
           letter-spacing: 0.12em;
           font-size: 14px;
-          color: #181a20;
-          background: linear-gradient(135deg, #181a20, #2a2d32);
+          color: var(--text);
+          background: linear-gradient(135deg, var(--text), var(--text-secondary));
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
         .footerSub{
-          color: #3a3b40;
+          color: var(--text-secondary);
           font-size: 12px;
           font-weight: 500;
           letter-spacing: 0.02em;
@@ -153,22 +150,22 @@ export default function Footer() {
           flex-direction: column;
           gap: 8px;
           padding: 20px;
-          border-radius: 16px;
-          background: rgba(255, 255, 255, 0.4);
-          border: 1px solid rgba(26, 159, 181, 0.15);
+          border-radius: var(--radius-lg);
+          background: var(--card);
+          border: 1px solid var(--stroke);
           backdrop-filter: blur(12px);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .infoItem:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 32px rgba(26, 159, 181, 0.15);
+          box-shadow: var(--shadow-lg);
         }
 
         .infoItem .label {
           font-size: 13px;
           font-weight: 700;
-          color: #1a9fb5;
+          color: var(--accent);
           text-transform: uppercase;
           letter-spacing: 0.08em;
           display: flex;
@@ -177,21 +174,21 @@ export default function Footer() {
         }
 
         .infoItem a {
-          color: #181a20;
+          color: var(--text);
           font-size: 14px;
           font-weight: 600;
           text-decoration: none;
-          transition: all 0.3s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           line-height: 1.4;
         }
 
         .infoItem a:hover {
-          color: #1a9fb5;
+          color: var(--accent);
           transform: translateX(2px);
         }
 
         .infoText {
-          color: #23242a;
+          color: var(--text);
           font-size: 14px;
           line-height: 1.6;
           margin: 0;
@@ -207,13 +204,13 @@ export default function Footer() {
         }
 
         .footerRight a{
-          color: #23242a;
+          color: var(--text);
           font-size: 14px;
           font-weight: 600;
           text-decoration: none;
           padding: 8px 16px;
-          border-radius: 8px;
-          transition: all 0.3s ease;
+          border-radius: var(--radius);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
         }
 
@@ -224,13 +221,13 @@ export default function Footer() {
           left: 50%;
           width: 0;
           height: 2px;
-          background: linear-gradient(90deg, #1a9fb5, #ff6b35);
-          transition: all 0.3s ease;
+          background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           transform: translateX(-50%);
         }
 
         .footerRight a:hover {
-          color: #1a9fb5;
+          color: var(--accent);
           transform: translateY(-2px);
         }
 
@@ -247,9 +244,9 @@ export default function Footer() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.3s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           margin-left: 8px;
-          background: rgba(255, 255, 255, 0.6);
+          background: var(--card);
           backdrop-filter: blur(8px);
         }
 
@@ -257,14 +254,14 @@ export default function Footer() {
           background: rgba(10, 102, 194, 0.1);
           border-color: #0a66c2;
           transform: translateY(-3px) scale(1.05);
-          box-shadow: 0 8px 24px rgba(10, 102, 194, 0.25);
+          box-shadow: var(--shadow-lg);
         }
 
         .footerRight .linkedInIconLink svg {
           width: 20px;
           height: 20px;
           color: #0a66c2;
-          transition: color 0.3s ease;
+          transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .footerRight .linkedInIconLink:hover svg {
@@ -275,7 +272,7 @@ export default function Footer() {
           position: relative;
           z-index: 1;
           padding-top: 24px;
-          border-top: 1px solid rgba(26, 159, 181, 0.2);
+          border-top: 1px solid var(--stroke);
         }
 
         .footerBottomContent {
@@ -283,13 +280,13 @@ export default function Footer() {
           align-items: center;
           justify-content: center;
           gap: 12px;
-          color: #3a3b40;
+          color: var(--text-muted);
           font-size: 13px;
           font-weight: 500;
         }
 
         .footerDivider {
-          color: #1a9fb5;
+          color: var(--accent);
           font-weight: 700;
         }
 

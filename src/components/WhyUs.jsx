@@ -31,34 +31,35 @@ export default function WhyUs() {
         .whyGrid{
           display:grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
+          gap: 32px;
         }
         .whyCard{
-          padding: 28px;
-          border-radius: 12px;
-          border: 1px solid rgba(26, 159, 181, 0.2);
-          background: rgba(20, 18, 40, 0.4);
-          backdrop-filter: blur(10px);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          transition: all 0.3s ease;
+          padding: 32px;
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--stroke);
+          background: var(--card);
+          backdrop-filter: blur(20px);
+          box-shadow: var(--shadow);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .whyCard:hover {
-          transform: translateY(-4px);
-          background: rgba(255, 107, 53, 0.1);
-          border-color: rgba(255, 107, 53, 0.4);
-          box-shadow: 0 16px 32px rgba(255, 107, 53, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          transform: translateY(-6px);
+          background: var(--card-hover);
+          border-color: var(--stroke-hover);
+          box-shadow: var(--shadow-lg);
         }
         .whyTitle{
-          font-weight: 700;
+          font-weight: 600;
           letter-spacing: -0.01em;
-          margin-bottom: 12px;
-          color: #181a20; /* much darker */
-          font-size: 18px;
+          margin-bottom: 16px;
+          color: var(--text);
+          font-size: 20px;
+          line-height: 1.3;
         }
         .whyDesc{
-          color: #23242a; /* much darker */
-          line-height: 1.7;
-          font-size: 15px;
+          color: var(--text-secondary);
+          line-height: 1.6;
+          font-size: 16px;
           margin: 0;
         }
         @media (max-width: 900px){
