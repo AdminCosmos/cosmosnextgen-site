@@ -37,10 +37,12 @@ export default function Footer() {
 
           {/* RIGHT */}
           <div className="footerRight">
-            <a href="/#about">About</a>
-            <a href="/#services">Services</a>
-            <a href="/#why">Why Us</a>
-            <a href="/#contact">Contact</a>
+            <div className="footerLinkGroup">
+              <a href="/#about">About</a>
+              <a href="/#services">Services</a>
+              <a href="/#why">Why Us</a>
+              <a href="/#contact">Contact</a>
+            </div>
             <a className="linkedInIconLink" href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="COSMOS LinkedIn Jobs and Posts">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11.032 20.485h-2.8v-9.299h2.8v9.299zm-1.4-10.598c-.898 0-1.624-.73-1.624-1.627 0-.897.726-1.626 1.624-1.626s1.625.729 1.625 1.626c0 .897-.727 1.627-1.625 1.627zm12.432 10.598h-2.8v-4.76c0-1.137-.02-2.599-1.585-2.599-1.587 0-1.83 1.238-1.83 2.517v4.842h-2.8v-9.299h2.688v1.272h.038c.374-.707 1.287-1.45 2.649-1.45 2.833 0 3.355 1.865 3.355 4.29v5.187z"/>
@@ -86,18 +88,17 @@ export default function Footer() {
         .footerInner{
           position: relative;
           z-index: 1;
-          display:flex;
-          align-items:flex-start;
-          justify-content:space-between;
-          gap: 48px;
-          padding-bottom: 32px;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: minmax(240px, 280px) minmax(320px, 1fr) minmax(240px, 280px);
+          gap: 36px;
+          padding-bottom: 40px;
+          align-items: start;
         }
 
         .footerLeft {
           display: flex;
-          align-items: flex-start;
-          gap: 18px;
+          flex-direction: column;
+          gap: 22px;
           min-width: 240px;
         }
 
@@ -105,27 +106,32 @@ export default function Footer() {
           height: 80px;
           width: auto;
           object-fit: contain;
-          border-radius: 12px;
-          box-shadow: 0 4px 16px rgba(255, 140, 66, 0.2);
+          border-radius: 18px;
+          box-shadow: 0 10px 32px rgba(26, 159, 181, 0.14);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .footerLogo:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(255, 140, 66, 0.3);
+          box-shadow: 0 14px 36px rgba(26, 159, 181, 0.2);
         }
 
         .footerBrandText {
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 14px;
         }
 
         .footerEverifyLogoWrapper {
-          padding: 14px;
-          display: inline-block;
-          background: rgba(255, 255, 255, 0.9);
-          border-radius: 18px;
+          padding: 18px 20px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 24px;
+          box-shadow: 0 16px 40px rgba(26, 159, 181, 0.08);
+          border: 1px solid rgba(26, 159, 181, 0.12);
+          max-width: 280px;
         }
 
         .footerEverifyLogo {
@@ -218,64 +224,76 @@ export default function Footer() {
 
         .footerRight{
           display:flex;
-          gap: 20px;
-          flex-wrap: wrap;
+          flex-direction: column;
+          gap: 24px;
           min-width: 240px;
-          align-items: center;
+          align-items: flex-end;
+          justify-content: space-between;
         }
 
-        .footerRight a{
+        .footerLinkGroup {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          gap: 16px;
+          max-width: 100%;
+        }
+
+        .footerLinkGroup > a{
           color: #23242a;
           font-size: 14px;
           font-weight: 600;
           text-decoration: none;
-          padding: 8px 16px;
-          border-radius: 8px;
-          transition: all 0.3s ease;
+          padding: 10px 18px;
+          border-radius: 999px;
+          transition: all 0.25s ease;
           position: relative;
+          background: rgba(255, 255, 255, 0.7);
+          border: 1px solid rgba(26, 159, 181, 0.14);
+          backdrop-filter: blur(8px);
         }
 
-        .footerRight a::before {
+        .footerLinkGroup > a::before {
           content: '';
           position: absolute;
-          bottom: 0;
+          bottom: 8px;
           left: 50%;
           width: 0;
           height: 2px;
           background: linear-gradient(90deg, #1a9fb5, #ff6b35);
-          transition: all 0.3s ease;
+          transition: width 0.3s ease;
           transform: translateX(-50%);
         }
 
-        .footerRight a:hover {
+        .footerLinkGroup > a:hover {
           color: #1a9fb5;
           transform: translateY(-2px);
+          background: rgba(255, 255, 255, 0.9);
         }
 
-        .footerRight a:hover::before {
+        .footerLinkGroup > a:hover::before {
           width: 100%;
         }
 
         .footerRight .linkedInIconLink {
           color: #0a66c2;
           font-size: 0;
-          border: 2px solid rgba(10, 102, 194, 0.3);
-          padding: 10px;
+          border: 2px solid rgba(10, 102, 194, 0.22);
+          padding: 12px;
           border-radius: 50%;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           transition: all 0.3s ease;
-          margin-left: 8px;
-          background: rgba(255, 255, 255, 0.6);
+          background: rgba(255, 255, 255, 0.85);
           backdrop-filter: blur(8px);
         }
 
         .footerRight .linkedInIconLink:hover {
-          background: rgba(10, 102, 194, 0.1);
+          background: rgba(10, 102, 194, 0.12);
           border-color: #0a66c2;
-          transform: translateY(-3px) scale(1.05);
-          box-shadow: 0 8px 24px rgba(10, 102, 194, 0.25);
+          transform: translateY(-4px) scale(1.04);
+          box-shadow: 0 12px 34px rgba(10, 102, 194, 0.18);
         }
 
         .footerRight .linkedInIconLink svg {
@@ -292,18 +310,19 @@ export default function Footer() {
         .footerBottom{
           position: relative;
           z-index: 1;
-          padding-top: 24px;
+          padding-top: 28px;
           border-top: 1px solid rgba(26, 159, 181, 0.2);
         }
 
         .footerBottomContent {
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: space-between;
           gap: 12px;
           color: #3a3b40;
           font-size: 13px;
           font-weight: 500;
+          flex-wrap: wrap;
         }
 
         .footerDivider {
@@ -326,7 +345,12 @@ export default function Footer() {
 
           .footerRight {
             justify-content: center;
+            align-items: center;
             gap: 16px;
+          }
+
+          .footerLinkGroup {
+            justify-content: center;
           }
 
           .footerBottomContent {
