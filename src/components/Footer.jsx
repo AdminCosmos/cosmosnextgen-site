@@ -7,7 +7,10 @@ export default function Footer() {
             <img src="/images/cosmos-logo.png" alt="COSMOS Logo" className="footerLogo" />
             <div className="footerBrandText">
               <div className="footerBrand">COSMOS</div>
-              <div className="footerSub">An E-Verify Participant</div>
+              <div className="footerSub">An E-Verify® Participant</div>
+              <div className="footerEverifyLogoWrapper">
+                <img src="/images/e-verify-logo.jpg" alt="E-Verify® logo" className="footerEverifyLogo" />
+              </div>
             </div>
           </div>
 
@@ -93,7 +96,7 @@ export default function Footer() {
 
         .footerLeft {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           gap: 18px;
           min-width: 240px;
         }
@@ -115,7 +118,22 @@ export default function Footer() {
         .footerBrandText {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 12px;
+        }
+
+        .footerEverifyLogoWrapper {
+          padding: 14px;
+          display: inline-block;
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 18px;
+        }
+
+        .footerEverifyLogo {
+          display: block;
+          height: 100px;
+          width: auto;
+          max-width: 240px;
+          object-fit: contain;
         }
 
         .footerBrand{
