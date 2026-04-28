@@ -1,301 +1,434 @@
+const footerLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Training", href: "/training" },
+  { label: "Why COSMOS", href: "/#why" },
+  { label: "Careers", href: "/#careers" },
+  { label: "Contact", href: "/#contact" },
+];
+
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="footer">
-      <div className="container footerGrid">
-        <div className="footerSection footerSectionBrand">
-          <img src="/images/cosmos-logo.png" alt="COSMOS Logo" className="footerLogo" />
-          <div className="footerBrandText">
-            <div className="footerBrand">COSMOS</div>
-            <div className="footerSub">An E-Verify® Participant</div>
-          </div>
-          <div className="footerEverifyLogoWrapper">
-            <img src="/images/e-verify-logo.jpg" alt="E-Verify® logo" className="footerEverifyLogo" />
-          </div>
-        </div>
+      <div className="footerTopline" />
 
-        <address className="footerSection footerSectionBlock" aria-label="Company address">
-          <div className="footerSectionLabel">📍 Address</div>
-          <p className="footerText">
-            <strong>COSMOS NextGen IT LLC</strong>
-            <br />
-            5900 Balcones Drive, Suite 100
-            <br />
-            Austin, TX 78731
-          </p>
-        </address>
-
-        <div className="footerSection footerSectionBlock">
-          <div className="footerSectionLabel">📞 Phone</div>
-          <a className="footerText footerPhoneLink" href="tel:2103909950">210.390.9950</a>
-        </div>
-
-        <div className="footerSection footerSectionNav">
-          <nav aria-label="Footer navigation">
-            <ul className="footerNavList">
-              <li><a href="/#about">About</a></li>
-              <li><a href="/#services">Services</a></li>
-              <li><a href="/#why">Why Us</a></li>
-              <li><a href="/#contact">Contact</a></li>
-            </ul>
-          </nav>
-          <a className="linkedInIconLink" href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="COSMOS LinkedIn Jobs and Posts">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11.032 20.485h-2.8v-9.299h2.8v9.299zm-1.4-10.598c-.898 0-1.624-.73-1.624-1.627 0-.897.726-1.626 1.624-1.626s1.625.729 1.625 1.626c0 .897-.727 1.627-1.625 1.627zm12.432 10.598h-2.8v-4.76c0-1.137-.02-2.599-1.585-2.599-1.587 0-1.83 1.238-1.83 2.517v4.842h-2.8v-9.299h2.688v1.272h.038c.374-.707 1.287-1.45 2.649-1.45 2.833 0 3.355 1.865 3.355 4.29v5.187z" />
-            </svg>
+      <div className="container footerMain">
+        <section className="footerIntro" aria-label="COSMOS footer summary">
+          <a href="/#home" className="footerBrandLockup" aria-label="COSMOS home">
+            <img src="/images/cosmos-logo-transparent.png" alt="COSMOS Logo" className="footerLogo" />
+            <span className="footerBrandText">
+              <span className="footerBrand">COSMOS</span>
+            </span>
           </a>
-        </div>
+
+          <p className="footerPitch">
+            Product engineering, cloud platforms, and consulting built for teams that need dependable delivery.
+          </p>
+
+          <div className="footerBadges" aria-label="Compliance and social links">
+            <div className="footerCompliance">
+              <span className="footerComplianceText">An E-Verify® Participant</span>
+            </div>
+
+            <div className="footerEverify" aria-label="E-Verify® Participant">
+              <img src="/images/e-verify-logo.jpg" alt="E-Verify® logo" className="footerEverifyLogo" />
+            </div>
+
+            <a
+              className="footerSocial"
+              href="https://www.linkedin.com/company/cosmos-nextgen-it/posts/?feedView=all"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="COSMOS LinkedIn posts"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11.032 20.485h-2.8v-9.299h2.8v9.299zm-1.4-10.598c-.898 0-1.624-.73-1.624-1.627 0-.897.726-1.626 1.624-1.626s1.625.729 1.625 1.626c0 .897-.727 1.627-1.625 1.627zm12.432 10.598h-2.8v-4.76c0-1.137-.02-2.599-1.585-2.599-1.587 0-1.83 1.238-1.83 2.517v4.842h-2.8v-9.299h2.688v1.272h.038c.374-.707 1.287-1.45 2.649-1.45 2.833 0 3.355 1.865 3.355 4.29v5.187z" />
+              </svg>
+            </a>
+          </div>
+        </section>
+
+        <section className="footerContact" aria-label="Contact information">
+          <p className="footerEyebrow">Austin, Texas</p>
+          <address className="footerAddress">
+            <strong>COSMOS NextGen IT LLC</strong>
+            <span>5900 Balcones Drive, Suite 100</span>
+            <span>Austin, TX 78731</span>
+          </address>
+          <a className="footerContactLink" href="tel:2103909950">
+            <span>Call</span>
+            <strong>210.390.9950</strong>
+          </a>
+        </section>
+
+        <nav className="footerNav" aria-label="Footer navigation">
+          <p className="footerEyebrow">Explore</p>
+          <ul className="footerNavList">
+            {footerLinks.map((link) => (
+              <li key={link.label}>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <section className="footerCta" aria-label="Start a conversation">
+          <p className="footerEyebrow">Ready when you are</p>
+          <h2>Build with a team that knows the path from plan to production.</h2>
+          <a className="footerCtaLink" href="/#contact">
+            Start a conversation
+            <span aria-hidden="true">-&gt;</span>
+          </a>
+        </section>
       </div>
 
       <div className="container footerBottom">
-        <div className="footerBottomRule" />
-        <div className="footerBottomContent">
-          <span>© {new Date().getFullYear()} COSMOS NextGen IT LLC</span>
-          <span className="footerDivider">•</span>
-          <span>Building the NextGen</span>
-        </div>
+        <span>&copy; {year} COSMOS NextGen IT LLC. All rights reserved.</span>
+        <span>Building the NextGen.</span>
       </div>
 
       <style>{`
         .footer {
           position: relative;
-          padding: 48px 0 24px;
-          border-top: 1px solid rgba(26, 159, 181, 0.18);
-          background:
-            linear-gradient(135deg, rgba(250, 247, 242, 0.95) 0%, rgba(245, 243, 238, 0.95) 100%),
-            radial-gradient(circle at 20% 80%, rgba(26, 159, 181, 0.06) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
-          color: #181a20;
+          isolation: isolate;
           overflow: hidden;
+          color: #17202c;
+          background:
+            linear-gradient(135deg, #ffffff 0%, #fff7ed 46%, #ecfeff 100%);
         }
 
         .footer::before {
-          content: '';
+          content: "";
           position: absolute;
           inset: 0;
-          background-image:
-            radial-gradient(circle at 25% 25%, rgba(26, 159, 181, 0.03) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, rgba(255, 107, 53, 0.03) 0%, transparent 50%);
-          pointer-events: none;
-          opacity: 0.65;
+          z-index: -1;
+          background:
+            linear-gradient(90deg, rgba(31, 41, 55, 0.035) 1px, transparent 1px),
+            linear-gradient(180deg, rgba(31, 41, 55, 0.03) 1px, transparent 1px);
+          background-size: 72px 72px, 72px 72px;
+          opacity: 0.7;
         }
 
-        .footerGrid {
-          position: relative;
-          z-index: 1;
+        .footerTopline {
+          height: 4px;
+          background: linear-gradient(90deg, #ff6b4a, #f7b733, #7ddfbb, #13b8c8, #ff5fa2);
+        }
+
+        .footerMain {
           display: grid;
-          grid-template-columns: minmax(220px, 280px) minmax(220px, 260px) minmax(220px, 260px) minmax(240px, 300px);
-          gap: 28px;
-          align-items: start;
-          padding-bottom: 32px;
+          grid-template-columns: minmax(260px, 1.35fr) minmax(210px, 0.9fr) minmax(160px, 0.7fr) minmax(260px, 1fr);
+          gap: 36px;
+          padding-top: 56px;
+          padding-bottom: 38px;
         }
 
-        .footerSection {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
+        .footerIntro,
+        .footerContact,
+        .footerNav,
+        .footerCta {
+          min-width: 0;
         }
 
-        .footerSectionBrand {
-          max-width: 320px;
+        .footerBrandLockup {
+          display: inline-flex;
+          align-items: center;
+          gap: 14px;
+          color: inherit;
+          text-decoration: none;
         }
 
         .footerLogo {
-          height: 72px;
-          width: auto;
+          width: 64px;
+          height: 64px;
           object-fit: contain;
-          border-radius: 18px;
-          box-shadow: 0 12px 28px rgba(26, 159, 181, 0.08);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .footerLogo:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 14px 32px rgba(26, 159, 181, 0.12);
         }
 
         .footerBrandText {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
+          display: inline-flex;
+          align-items: center;
         }
 
         .footerBrand {
-          font-weight: 900;
-          letter-spacing: 0.12em;
-          font-size: 16px;
-          color: #181a20;
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          color: #17202c;
+          font-size: 28px;
+          line-height: 0.95;
+          font-weight: 950;
+          letter-spacing: 0.055em;
+        }
+
+        .footerBrand::after {
+          content: "";
+          position: absolute;
+          left: 2px;
+          right: 3px;
+          bottom: -9px;
+          height: 4px;
+          border-radius: 999px;
+          background: linear-gradient(90deg, #ff6b4a, #f7b733, #0f766e);
+        }
+
+        .footerPitch,
+        .footerAddress,
+        .footerBottom {
+          color: rgba(31, 41, 55, 0.68);
+        }
+
+        .footerPitch {
+          max-width: 390px;
+          margin: 24px 0 0;
+          font-size: 15px;
+          line-height: 1.75;
+        }
+
+        .footerBadges {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+          margin-top: 28px;
+        }
+
+        .footerCompliance {
+          display: flex;
+          align-items: center;
+          min-height: 48px;
+        }
+
+        .footerComplianceText {
+          max-width: 110px;
+          color: rgba(31, 41, 55, 0.66);
+          font-size: 11px;
+          line-height: 1.35;
+          font-weight: 800;
           text-transform: uppercase;
+          letter-spacing: 0.08em;
         }
 
-        .footerSub {
-          color: #3a3b40;
-          font-size: 13px;
-          font-weight: 500;
-          letter-spacing: 0.02em;
-          line-height: 1.7;
-        }
-
-        .footerEverifyLogoWrapper {
-          padding: 10px 14px;
+        .footerEverify {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          background: rgba(255, 255, 255, 0.92);
-          border-radius: 18px;
-          border: 1px solid rgba(26, 159, 181, 0.12);
-          max-width: 240px;
+          min-width: 172px;
+          min-height: 84px;
+          padding: 28px;
+          background: #ffffff;
         }
 
         .footerEverifyLogo {
           display: block;
-          height: 64px;
-          width: auto;
-          max-width: 220px;
+          width: 116px;
+          min-width: 100px;
+          height: auto;
           object-fit: contain;
         }
 
-        .footerSectionBlock {
-          gap: 12px;
-        }
-
-        .footerSectionLabel {
-          font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #1a9fb5;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .footerText {
-          color: #23242a;
-          font-size: 14px;
-          line-height: 1.75;
-          margin: 0;
-          font-weight: 500;
-        }
-
-        .footerPhoneLink {
-          color: #23242a;
-          font-weight: 600;
-          text-decoration: none;
-        }
-
-        .footerPhoneLink:hover {
-          color: #1a9fb5;
-        }
-
-        .footerSectionNav {
-          gap: 18px;
-          align-items: flex-start;
-        }
-
-        .footerNavList {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-        }
-
-        .footerNavList a {
-          color: #23242a;
-          font-size: 14px;
-          font-weight: 600;
-          text-decoration: none;
-          transition: color 0.25s ease;
-        }
-
-        .footerNavList a:hover {
-          color: #1a9fb5;
-          text-decoration: underline;
-        }
-
-        .linkedInIconLink {
-          color: #0a66c2;
-          font-size: 0;
-          border: 2px solid rgba(10, 102, 194, 0.22);
-          padding: 12px;
-          border-radius: 50%;
+        .footerSocial {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.3s ease;
-          background: rgba(255, 255, 255, 0.85);
-          backdrop-filter: blur(8px);
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          color: #ffffff;
+          background: #0a66c2;
+          box-shadow: 0 16px 34px rgba(10, 102, 194, 0.28);
+          transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
         }
 
-        .linkedInIconLink:hover {
-          background: rgba(10, 102, 194, 0.12);
-          border-color: #0a66c2;
-          transform: translateY(-2px);
-          box-shadow: 0 10px 28px rgba(10, 102, 194, 0.14);
+        .footerSocial:hover {
+          transform: translateY(-3px);
+          background: #0b78df;
+          box-shadow: 0 22px 42px rgba(10, 102, 194, 0.36);
         }
 
-        .linkedInIconLink svg {
+        .footerSocial svg {
           width: 20px;
           height: 20px;
-          color: #0a66c2;
-          transition: color 0.3s ease;
+          fill: currentColor;
         }
 
-        .linkedInIconLink:hover svg {
-          color: #005885;
+        .footerEyebrow {
+          margin: 0 0 18px;
+          color: #0f766e;
+          font-size: 12px;
+          font-weight: 850;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+        }
+
+        .footerAddress {
+          display: grid;
+          gap: 7px;
+          margin: 0;
+          font-style: normal;
+          font-size: 14px;
+          line-height: 1.55;
+        }
+
+        .footerAddress strong {
+          color: #17202c;
+        }
+
+        .footerContactLink {
+          display: inline-grid;
+          gap: 2px;
+          margin-top: 22px;
+          padding: 14px 16px;
+          min-width: 190px;
+          color: #17202c;
+          text-decoration: none;
+          border-radius: 8px;
+          border: 1px solid rgba(31, 41, 55, 0.1);
+          background: linear-gradient(135deg, rgba(255, 241, 118, 0.26), rgba(125, 223, 187, 0.2));
+          transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .footerContactLink span {
+          color: rgba(31, 41, 55, 0.58);
+          font-size: 12px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+        }
+
+        .footerContactLink strong {
+          font-size: 17px;
+          letter-spacing: 0.01em;
+        }
+
+        .footerContactLink:hover {
+          transform: translateY(-2px);
+          border-color: rgba(255, 107, 74, 0.32);
+          background: linear-gradient(135deg, rgba(255, 241, 118, 0.38), rgba(255, 184, 107, 0.22));
+        }
+
+        .footerNavList {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 11px;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .footerNavList a {
+          display: inline-flex;
+          width: fit-content;
+          color: rgba(31, 41, 55, 0.72);
+          font-size: 14px;
+          font-weight: 700;
+          text-decoration: none;
+          transition: color 0.22s ease, transform 0.22s ease;
+        }
+
+        .footerNavList a:hover {
+          color: #17202c;
+          transform: translateX(4px);
+        }
+
+        .footerCta {
+          padding: 22px;
+          border-radius: 8px;
+          border: 1px solid rgba(31, 41, 55, 0.1);
+          background: rgba(255, 255, 255, 0.68);
+          box-shadow: 0 22px 58px rgba(31, 41, 55, 0.1);
+        }
+
+        .footerCta h2 {
+          margin: 0;
+          color: #17202c;
+          font-size: 24px;
+          line-height: 1.25;
+          letter-spacing: 0;
+        }
+
+        .footerCtaLink {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 24px;
+          padding: 13px 16px;
+          border-radius: 8px;
+          color: #111827;
+          background: linear-gradient(135deg, #fff176, #ffb86b, #ff6b4a);
+          font-size: 14px;
+          font-weight: 850;
+          text-decoration: none;
+          box-shadow: 0 16px 32px rgba(108, 242, 255, 0.17);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .footerCtaLink:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 22px 40px rgba(255, 184, 107, 0.22);
         }
 
         .footerBottom {
-          position: relative;
-          z-index: 1;
-          padding-top: 24px;
-        }
-
-        .footerBottomRule {
-          width: 100%;
-          height: 1px;
-          background: rgba(26, 159, 181, 0.18);
-          margin-bottom: 18px;
-        }
-
-        .footerBottomContent {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 12px;
-          color: #3a3b40;
+          gap: 16px;
+          padding-top: 22px;
+          padding-bottom: 24px;
+          border-top: 1px solid rgba(31, 41, 55, 0.1);
           font-size: 13px;
-          font-weight: 500;
+          font-weight: 650;
           flex-wrap: wrap;
         }
 
-        .footerDivider {
-          color: rgba(26, 159, 181, 0.72);
-          font-weight: 700;
-        }
-
-        @media (max-width: 940px) {
-          .footerGrid {
-            grid-template-columns: repeat(2, minmax(220px, 1fr));
-          }
-
-          .footerSectionNav {
-            align-items: flex-start;
+        @media (max-width: 1080px) {
+          .footerMain {
+            grid-template-columns: minmax(260px, 1fr) minmax(240px, 1fr);
           }
         }
 
-        @media (max-width: 640px) {
-          .footer {
-            padding: 36px 0 20px;
-          }
-
-          .footerGrid {
+        @media (max-width: 680px) {
+          .footerMain {
             grid-template-columns: 1fr;
+            gap: 32px;
+            padding-top: 42px;
           }
 
-          .footerBottomContent {
-            justify-content: flex-start;
+          .footerLogo {
+            width: 58px;
+            height: 58px;
+          }
+
+          .footerPitch {
+            max-width: none;
+          }
+
+          .footerNavList {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .footerCta {
+            padding: 20px;
+          }
+
+          .footerCta h2 {
+            font-size: 21px;
+          }
+
+          .footerBottom {
+            align-items: flex-start;
+            flex-direction: column;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .footerBadges {
+            align-items: flex-start;
+            flex-direction: column;
+          }
+
+          .footerNavList {
+            grid-template-columns: 1fr;
           }
         }
       `}</style>

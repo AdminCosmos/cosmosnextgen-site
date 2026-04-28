@@ -55,53 +55,81 @@ export default function Contact() {
       <section id="contact" className="contact">
         <style>{`
         .contact {
-          padding: 100px 20px;
+          position: relative;
+          overflow: hidden;
+          padding: 96px 0;
           background:
-            radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.12) 0%, transparent 40%),
-            radial-gradient(circle at 80% 70%, rgba(26, 159, 181, 0.1) 0%, transparent 40%),
-            linear-gradient(135deg, rgba(254, 252, 247, 0.95) 0%, rgba(250, 247, 242, 0.85) 100%);
+            radial-gradient(ellipse at 10% 14%, rgba(247, 183, 51, 0.18), transparent 34%),
+            radial-gradient(ellipse at 90% 12%, rgba(19, 184, 200, 0.16), transparent 34%),
+            linear-gradient(135deg, #fffbe6 0%, #fff7ed 42%, #ecfeff 100%);
         }
 
-        .container {
-          max-width: 1000px;
-          margin: 0 auto;
+        .contact::before {
+          content: "";
+          position: absolute;
+          inset: 42px 0 auto;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(255, 107, 74, 0.32), rgba(247, 183, 51, 0.3), transparent);
         }
 
-        h2 {
-          text-align: center;
-          font-size: 42px;
-          color: #181a20;
+        .contactHeader {
+          max-width: 780px;
           margin-bottom: 14px;
         }
 
+        .contact h2 {
+          margin: 0 0 14px;
+          color: #17202c;
+          font-size: clamp(32px, 4.4vw, 46px);
+          line-height: 1.04;
+          font-weight: 950;
+          letter-spacing: 0;
+        }
+
         .contact-subtitle {
-          text-align: center;
-          color: #23242a;
-          margin-bottom: 60px;
+          max-width: 680px;
+          color: rgba(31, 41, 55, 0.72);
+          margin: 0 0 40px;
+          font-size: 16px;
+          line-height: 1.74;
         }
 
         .contactWrapper {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 40px;
+          grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+          gap: 24px;
+          align-items: stretch;
         }
 
         .contactForm {
-          background: rgba(255,255,255,0.85);
-          padding: 40px;
-          border-radius: 16px;
-          border: 1px solid rgba(26,159,181,0.25);
+          padding: 30px;
+          border: 1px solid rgba(31, 41, 55, 0.1);
+          border-radius: var(--radius-lg);
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.6));
+          box-shadow: 0 18px 52px rgba(31, 41, 55, 0.1);
+          backdrop-filter: blur(20px);
           display: flex;
           flex-direction: column;
-          gap: 18px;
+          gap: 14px;
         }
 
         .contactForm input,
         .contactForm textarea {
-          padding: 14px 16px;
+          width: 100%;
+          padding: 15px 16px;
           border-radius: 10px;
-          border: 1px solid rgba(0,0,0,0.2);
+          border: 1px solid rgba(17, 24, 39, 0.13);
+          color: #17202c;
+          background: #ffffff;
           font-size: 15px;
+          outline: none;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contactForm input:focus,
+        .contactForm textarea:focus {
+          border-color: rgba(255, 107, 74, 0.52);
+          box-shadow: 0 0 0 4px rgba(255, 107, 74, 0.1);
         }
 
         .contactForm textarea {
@@ -110,13 +138,22 @@ export default function Contact() {
         }
 
         .contactForm button {
-          background: linear-gradient(135deg,#ff6b35,#1a9fb5);
+          min-height: 50px;
+          margin-top: 4px;
+          background: linear-gradient(135deg, #ff6b4a, #f7b733);
           border: none;
-          color: white;
-          padding: 14px;
-          border-radius: 12px;
-          font-weight: 600;
+          color: #17202c;
+          padding: 0 18px;
+          border-radius: 10px;
+          font-weight: 850;
           cursor: pointer;
+          box-shadow: 0 16px 34px rgba(247, 183, 51, 0.24);
+          transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+        }
+
+        .contactForm button:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 22px 42px rgba(255, 107, 53, 0.22);
         }
 
         .contactForm button:disabled {
@@ -125,42 +162,99 @@ export default function Contact() {
         }
 
         .statusMsg {
-          margin-top: 16px;
-          text-align: center;
-          font-weight: 600;
+          padding: 12px 14px;
+          border-radius: var(--radius);
+          background: rgba(125, 223, 187, 0.18);
+          color: #17202c;
+          font-weight: 800;
         }
 
         .contactDetails {
-          background: rgba(255,255,255,0.85);
-          padding: 40px;
-          border-radius: 16px;
-          border: 1px solid rgba(26,159,181,0.25);
+          padding: 30px;
+          border-radius: var(--radius-lg);
+          color: #17202c;
+          position: relative;
+          overflow: hidden;
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.56));
+          border: 1px solid rgba(31, 41, 55, 0.1);
+          box-shadow: 0 18px 52px rgba(31, 41, 55, 0.1);
           display: flex;
           flex-direction: column;
-          gap: 24px;
+          gap: 18px;
+        }
+
+        .contactDetails::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.9)),
+            url("/images/cosmos-talent-visual.png") center / cover;
+          opacity: 0.42;
+        }
+
+        .contactDetails > * {
+          position: relative;
+          z-index: 1;
         }
 
         .detailItem {
           display: flex;
           gap: 14px;
+          padding: 18px 0;
+          border-bottom: 1px solid rgba(31, 41, 55, 0.1);
+          color: rgba(31, 41, 55, 0.72);
+          line-height: 1.7;
+        }
+
+        .detailItem:last-child {
+          border-bottom: 0;
+        }
+
+        .detailIcon {
+          display: grid;
+          place-items: center;
+          width: 38px;
+          height: 38px;
+          flex: 0 0 38px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, rgba(255, 241, 118, 0.42), rgba(125, 223, 187, 0.32));
         }
 
         .detailLabel {
-          font-weight: 700;
+          color: #17202c;
+          font-weight: 900;
+          margin-bottom: 4px;
+        }
+
+        .contactDetails a {
+          color: #0f766e;
+          font-weight: 850;
         }
 
         @media(max-width: 800px) {
+          .contact {
+            padding: 72px 0;
+          }
+
           .contactWrapper {
             grid-template-columns: 1fr;
+          }
+
+          .contactForm,
+          .contactDetails {
+            padding: 24px;
           }
         }
       `}</style>
 
         <div className="container">
-          <h2>Get in Touch</h2>
-          <p className="contact-subtitle">
-            Have a project in mind? Let’s build something powerful.
-          </p>
+          <div className="contactHeader">
+            <h2>Get in Touch</h2>
+            <p className="contact-subtitle">
+              Have a project in mind? Let’s build something powerful.
+            </p>
+          </div>
 
           <div className="contactWrapper">
             <form onSubmit={handleSubmit} className="contactForm">
@@ -211,7 +305,7 @@ export default function Contact() {
 
             <div className="contactDetails">
               <div className="detailItem">
-                <div>📍</div>
+                <div className="detailIcon">📍</div>
                 <div>
                   <div className="detailLabel">Address</div>
                   COSMOS NextGen IT LLC<br />
@@ -221,7 +315,7 @@ export default function Contact() {
               </div>
 
               <div className="detailItem">
-                <div>📞</div>
+                <div className="detailIcon">📞</div>
                 <div>
                   <div className="detailLabel">Phone</div>
                   <a href="tel:2103909950">210.390.9950</a>
@@ -229,7 +323,7 @@ export default function Contact() {
               </div>
 
               <div className="detailItem">
-                <div>✉️</div>
+                <div className="detailIcon">✉️</div>
                 <div>
                   <div className="detailLabel">Email</div>
                   <a href="mailto:hr@cosmosnextgen.com">hr@cosmosnextgen.com</a>

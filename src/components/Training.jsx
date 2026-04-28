@@ -23,7 +23,11 @@ export default function Training() {
     return (
         <main className="trainingPage">
             <section className="trainingHero">
+                <div className="trainingHeroImage" aria-hidden="true">
+                    <img src="/images/cosmos-training-visual.png" alt="" />
+                </div>
                 <div className="container">
+                    <div className="trainingEyebrow">COSMOS Training</div>
                     <h1 className="title">Training & Education</h1>
                     <p className="subtitle">
                         Practical technology training designed to close skill gaps, accelerate adoption,
@@ -35,7 +39,7 @@ export default function Training() {
                         {/* <a className="btnGhost" href="/#services">Explore Services</a> */}
                     </div>
 
-                    <div className="pillRow">
+                    <div className="trainingPillRow">
                         <span className="pill">Instructor-led</span>
                         <span className="pill">Self-paced options</span>
                         <span className="pill">Custom curriculum</span>
@@ -50,7 +54,7 @@ export default function Training() {
                         Training built by engineers who actually ship production systems — not slide-deck merchants.
                     </p>
 
-                    <div className="grid trainingGrid">
+                    <div className="trainingGrid">
                         {trainingAreas.map((t) => (
                             <div key={t.title} className="card trainingCard">
                                 <div className="kicker">Training Track</div>
@@ -66,19 +70,19 @@ export default function Training() {
                 <div className="container">
                     <h2 className="section-title">How it works</h2>
 
-                    <div className="grid howGrid">
+                    <div className="howGrid">
                         <div className="card howCard">
-                            <div className="headline">1) Assess</div>
+                            <div className="headline">Assess</div>
                             <p className="copy">We baseline skills, roles, and goals. No guessing. No vibes.</p>
                         </div>
 
                         <div className="card howCard">
-                            <div className="headline">2) Train</div>
+                            <div className="headline">Train</div>
                             <p className="copy">Hands-on sessions using real examples aligned to your stack.</p>
                         </div>
 
                         <div className="card howCard">
-                            <div className="headline">3) Validate</div>
+                            <div className="headline">Validate</div>
                             <p className="copy">Post-training checks + optional certification support.</p>
                         </div>
                     </div>
@@ -90,61 +94,173 @@ export default function Training() {
             </section>
 
             <style>{`
-        .trainingHero{
-          padding: 110px 8% 70px;
+        .trainingPage {
+          background: #fffaf0;
+        }
+
+        .trainingHero {
+          position: relative;
+          overflow: hidden;
+          padding: 98px 0 78px;
+          color: #17202c;
+          background: #fff7ed;
+        }
+
+        .trainingHero::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: 1;
           background:
-            radial-gradient(circle at 30% -40%, rgba(124,77,255,0.18) 0%, transparent 55%),
-            radial-gradient(circle at 80% -30%, rgba(0,209,255,0.18) 0%, transparent 60%),
-            linear-gradient(180deg, #f6f8ff 0%, #eef2ff 100%);
+            linear-gradient(90deg, rgba(255, 250, 240, 0.94), rgba(255, 247, 237, 0.76), rgba(255, 255, 255, 0.18)),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 250, 240, 0.94));
         }
-        .container{ max-width: 1200px; margin: 0 auto; }
-        .title{ font-size: 56px; margin: 0 0 14px; letter-spacing: -0.03em; color:#181a20; font-weight: 900; }
-        .subtitle{ margin: 0 0 26px; max-width: 760px; color:#23242a; line-height: 1.9; font-size: 18px; }
-        .ctaRow{ display:flex; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
-        .btnPrimary{
-          background: linear-gradient(135deg, #6cf2ff, #7c4dff);
-          padding: 14px 26px; border-radius: 14px; color: #000; font-weight: 700; text-decoration:none;
-          box-shadow: 0 10px 40px rgba(124,77,255,0.25);
-          display:inline-block;
+
+        .trainingHero .container {
+          position: relative;
+          z-index: 2;
         }
-        .btnGhost{
-          background: rgba(255,255,255,0.7);
-          padding: 14px 26px; border-radius: 14px; color:#181a20; font-weight:700; text-decoration:none;
-          border: 1px solid rgba(124,77,255,0.25);
-          display:inline-block;
+
+        .trainingHeroImage {
+          position: absolute;
+          inset: 0;
         }
-        .pillRow{ display:flex; gap: 10px; flex-wrap: wrap; }
-        .pill{
-          padding: 8px 12px; border-radius: 999px;
-          background: rgba(124,77,255,0.12);
-          border: 1px solid rgba(124,77,255,0.25);
-          color: #4a3aff; font-size: 12px; font-weight: 600;
+
+        .trainingHeroImage img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 68% center;
         }
-        .trainingGrid{ grid-template-columns: repeat(2, 1fr); gap: 28px; }
-        .trainingCard, .howCard{
-          padding: 28px;
-          border-radius: 12px;
-          background: rgba(20, 18, 40, 0.4);
-          border: 1px solid rgba(26, 159, 181, 0.2);
-          backdrop-filter: blur(10px);
-          box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-          transition: all 0.3s ease;
+
+        .trainingEyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 20px;
+          color: #0f766e;
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
         }
-        .trainingCard:hover, .howCard:hover{
-          transform: translateY(-4px);
-          background: rgba(255, 107, 53, 0.1);
-          border-color: rgba(255, 107, 53, 0.4);
-          box-shadow: 0 16px 32px rgba(255,107,53,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+
+        .trainingEyebrow::before {
+          content: "";
+          width: 36px;
+          height: 2px;
+          border-radius: 999px;
+          background: linear-gradient(90deg, #ff6b4a, #f7b733, #7ddfbb);
         }
-        .kicker{ font-size: 12px; color: #1a9fb5; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; margin-bottom: 10px; }
-        .headline{ font-size: 20px; font-weight: 800; color:#181a20; margin-bottom: 10px; }
-        .copy{ margin: 0; color:#23242a; line-height: 1.7; font-size: 15px; }
-        .howGrid{ grid-template-columns: repeat(3, 1fr); gap: 18px; }
-        .bottomCta{ margin-top: 26px; display:flex; }
-        @media(max-width: 900px){
-          .title{ font-size: 42px; }
-          .trainingGrid{ grid-template-columns: 1fr; }
-          .howGrid{ grid-template-columns: 1fr; }
+
+        .title {
+          max-width: 760px;
+          font-size: clamp(36px, 5.5vw, 58px);
+          line-height: 1.04;
+          margin: 0 0 18px;
+          letter-spacing: 0;
+          color: #17202c;
+          font-weight: 950;
+        }
+
+        .subtitle {
+          margin: 0 0 28px;
+          max-width: 760px;
+          color: rgba(31, 41, 55, 0.72);
+          line-height: 1.85;
+          font-size: 16.5px;
+        }
+
+        .ctaRow {
+          display: flex;
+          gap: 14px;
+          flex-wrap: wrap;
+          margin-bottom: 22px;
+        }
+
+        .trainingPillRow {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .trainingGrid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 22px;
+        }
+
+        .trainingCard,
+        .howCard {
+          position: relative;
+          padding: 26px;
+          overflow: hidden;
+          border-color: rgba(31, 41, 55, 0.09);
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.56));
+          box-shadow: 0 18px 48px rgba(31, 41, 55, 0.09);
+          backdrop-filter: blur(20px);
+          transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .trainingCard::before,
+        .howCard::before {
+          content: "";
+          position: absolute;
+          inset: 0 0 auto;
+          height: 4px;
+          background: linear-gradient(90deg, #ff5fa2, #f7b733, #7ddfbb, #13b8c8);
+        }
+
+        .trainingCard:hover,
+        .howCard:hover {
+          transform: translateY(-5px);
+          border-color: rgba(255, 107, 74, 0.28);
+          box-shadow: 0 28px 70px rgba(255, 107, 74, 0.14);
+        }
+
+        .kicker {
+          font-size: 12px;
+          color: #0f766e;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          font-weight: 900;
+          margin-bottom: 10px;
+        }
+
+        .headline {
+          font-size: 18.5px;
+          font-weight: 900;
+          color: #17202c;
+          margin-bottom: 10px;
+        }
+
+        .copy {
+          margin: 0;
+          color: rgba(31, 41, 55, 0.68);
+          line-height: 1.7;
+          font-size: 14.5px;
+        }
+
+        .howGrid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .bottomCta {
+          margin-top: 26px;
+          display: flex;
+        }
+
+        @media(max-width: 900px) {
+          .trainingHero {
+            padding: 78px 0 62px;
+          }
+
+          .trainingGrid,
+          .howGrid {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
         </main>

@@ -14,260 +14,295 @@ export default function Navbar() {
     { label: "Careers", href: "/#careers" },
   ];
 
-  // Close the mobile menu whenever the route changes
   React.useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
   return (
-      <header className="navWrap">
-        <div className="container nav">
-          {/* BRAND */}
-          <a href="/#home" className="brand" aria-label="COSMOS Home">
-            <div className="brandStack">
-              <img src="/images/cosmos-logo.png" alt="COSMOS Logo" className="navLogo" />
-              <span className="brandText">COSMOS</span>
-            </div>
-          </a>
+    <header className="navWrap">
+      <div className="container nav">
+        <a href="/#home" className="brand" aria-label="COSMOS Home">
+          <img src="/images/cosmos-logo-transparent.png" alt="COSMOS Logo" className="navLogo" />
+          <span className="brandCopy">
+            <span className="brandText">COSMOS</span>
+          </span>
+        </a>
 
-          {/* DESKTOP LINKS */}
-          <nav className="links desktop" aria-label="Primary">
-            {nav.slice(0, 6).map((n) =>
-                n.to ? (
-                    <Link key={n.label} to={n.to} className="navLink">
-                      {n.label}
-                    </Link>
-                ) : (
-                    <a key={n.label} href={n.href} className="navLink">
-                      {n.label}
-                    </a>
-                )
+        <nav className="links desktop" aria-label="Primary">
+          {nav.map((n) =>
+            n.to ? (
+              <Link key={n.label} to={n.to} className="navLink">
+                {n.label}
+              </Link>
+            ) : (
+              <a key={n.label} href={n.href} className="navLink">
+                {n.label}
+              </a>
+            )
+          )}
+        </nav>
+
+        <a href="/#contact" className="navCta desktop">
+          Contact
+        </a>
+
+        <button
+          className="mobileBtn"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className={`bar barTop ${open ? "open" : ""}`} />
+          <span className={`bar barBottom ${open ? "open" : ""}`} />
+        </button>
+      </div>
+
+      {open && (
+        <div className="mobileMenu" role="dialog" aria-label="Mobile menu">
+          <div className="container mobileInner">
+            {nav.map((n) =>
+              n.to ? (
+                <Link key={n.label} to={n.to} className="mobileLink" onClick={() => setOpen(false)}>
+                  {n.label}
+                </Link>
+              ) : (
+                <a key={n.label} href={n.href} className="mobileLink" onClick={() => setOpen(false)}>
+                  {n.label}
+                </a>
+              )
             )}
-          </nav>
-
-          {/* DESKTOP CTA */}
-          <a href="/#contact" className="navCta desktop">
-            Contact
-          </a>
-
-          {/* MOBILE HAMBURGER */}
-          <button
-              className="mobileBtn"
-              aria-label="Open menu"
-              aria-expanded={open}
-              onClick={() => setOpen((v) => !v)}
-          >
-            <span className={`bar ${open ? "x1" : ""}`} />
-            <span className={`bar ${open ? "x2" : ""}`} />
-            <span className={`bar ${open ? "x3" : ""}`} />
-          </button>
+            <a href="/#contact" className="mobileCta" onClick={() => setOpen(false)}>
+              Contact
+            </a>
+          </div>
         </div>
+      )}
 
-        {/* MOBILE MENU */}
-        {open && (
-            <div className="mobileMenu" role="dialog" aria-label="Mobile menu">
-              <div className="mobileInner">
-                {nav.map((n) =>
-                    n.to ? (
-                        <Link
-                            key={n.label}
-                            to={n.to}
-                            className="mobileLink"
-                            onClick={() => setOpen(false)}
-                        >
-                          {n.label}
-                        </Link>
-                    ) : (
-                        <a
-                            key={n.label}
-                            href={n.href}
-                            className="mobileLink"
-                            onClick={() => setOpen(false)}
-                        >
-                          {n.label}
-                        </a>
-                    )
-                )}
-              </div>
-            </div>
-        )}
-
-        <style>{`
-        .navWrap{
+      <style>{`
+        .navWrap {
           position: sticky;
           top: 0;
           z-index: 50;
-          backdrop-filter: blur(20px);
-          background: rgba(255, 255, 255, 0.85);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          background: rgba(255, 255, 255, 0.68);
+          border-bottom: 1px solid rgba(31, 41, 55, 0.09);
+          backdrop-filter: blur(22px);
+          box-shadow: 0 16px 48px rgba(31, 41, 55, 0.1);
         }
 
-        .navWrap:hover{
-          background: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-        }
-
-        @keyframes slideDown {
-          from { transform: translateY(-100%); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-        }
-
-        .nav{
-          display:flex;
-          align-items:center;
-          justify-content:space-around;
-          padding: 10px 24px;
-          position: relative;
-          max-width: 1400px;
-          margin: 0 auto;
-        }
-
-        .brand{ text-decoration:none; }
-        .brandStack{ 
-          display:flex; 
-          flex-direction:row; 
-          align-items:center; 
-          gap: 6px;
-          flex-shrink: 0;
-        }
-        .navLogo{ height: 45px; width: auto; }
-
-        .brandText{
-          font-size: 22px;
-          font-weight: 800;
-          letter-spacing: 0.02em;
-          color: #1a9fb5;
-          transition: all 0.3s ease;
-          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .brandText:hover {
-          color: #ff6b35;
-        }
-
-        .links{
-          display:flex;
-          gap: 20px;
-          align-items:center;
-          flex-wrap: nowrap;
-        }
-
-        .navLink{
-          color: rgba(27,31,59,0.75);
-          font-size: 14px;
-          padding: 8px 16px;
-          border-radius: 8px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          font-weight: 500;
-          text-decoration: none;
-          position: relative;
-          display: inline-block;
-        }
-
-        .navLink::before {
-          content: '';
+        .navWrap::before {
+          content: "";
           position: absolute;
-          bottom: 0;
-          left: 50%;
-          width: 0;
-          height: 2px;
-          background: linear-gradient(90deg, #1a9fb5, #ff6b35);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          transform: translateX(-50%);
+          inset: 0 0 auto;
+          height: 3px;
+          background: linear-gradient(90deg, #ff6b4a, #f7b733, #7ddfbb, #13b8c8, #ff5fa2);
+        }
+
+        .nav {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 22px;
+          min-height: 76px;
+        }
+
+        .brand {
+          display: inline-flex;
+          align-items: center;
+          gap: 14px;
+          min-width: max-content;
+        }
+
+        .navLogo {
+          width: 54px;
+          height: 54px;
+          object-fit: contain;
+        }
+
+        .brandCopy {
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .brandText {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          color: #17202c;
+          font-size: 24px;
+          font-weight: 950;
+          letter-spacing: 0.055em;
+          line-height: 0.95;
+          text-transform: uppercase;
+        }
+
+        .brandText::after {
+          content: "";
+          position: absolute;
+          left: 2px;
+          right: 3px;
+          bottom: -8px;
+          height: 4px;
+          border-radius: 999px;
+          background: linear-gradient(90deg, #ff6b4a, #f7b733, #0f766e);
+        }
+
+        .links {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+          padding: 6px;
+          border: 1px solid rgba(31, 41, 55, 0.09);
+          border-radius: 999px;
+          background: linear-gradient(135deg, rgba(255, 247, 237, 0.86), rgba(236, 254, 255, 0.82));
+        }
+
+        .navLink {
+          display: inline-flex;
+          align-items: center;
+          min-height: 38px;
+          padding: 0 13px;
+          border-radius: 999px;
+          color: rgba(31, 41, 55, 0.72);
+          font-size: 13px;
+          font-weight: 850;
+          white-space: nowrap;
+          transition: color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
         }
 
         .navLink:hover {
-          color: #1a9fb5;
-          background: rgba(26, 159, 181, 0.05);
+          color: #17202c;
+          background: rgba(255, 255, 255, 0.85);
+          box-shadow: inset 0 0 0 1px rgba(255, 107, 74, 0.18);
         }
 
-        .navLink:hover::before {
-          width: 100%;
-        }
-
-        .navCta{
-          padding: 10px 20px;
+        .navCta,
+        .mobileCta {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 42px;
+          padding: 0 18px;
+          border-radius: 999px;
+          color: #17202c;
           font-size: 14px;
-          border-radius: 50px;
-          text-decoration: none;
-          background: linear-gradient(135deg, #1a9fb5, #ff6b35);
-          color: white;
-          font-weight: 600;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 4px 12px rgba(26, 159, 181, 0.3);
-          flex-shrink: 0;
+          font-weight: 950;
+          background: linear-gradient(135deg, #fff176, #ffb86b, #ff6b4a);
+          box-shadow: 0 16px 34px rgba(255, 107, 74, 0.2);
+          transition: transform 0.22s ease, box-shadow 0.22s ease;
         }
 
-        .navCta:hover {
+        .navCta:hover,
+        .mobileCta:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(26, 159, 181, 0.4);
+          box-shadow: 0 24px 48px rgba(255, 122, 61, 0.24);
         }
 
-        /* Mobile button */
-        .mobileBtn{
-          display:none;
-          background: transparent;
-          border: 0;
-          padding: 10px;
-          border-radius: 10px;
+        .mobileBtn {
+          display: none;
+          position: relative;
+          width: 42px;
+          height: 42px;
+          place-items: center;
+          align-content: center;
+          justify-items: center;
+          row-gap: 5px;
+          padding: 0;
+          border: 1px solid rgba(31, 41, 55, 0.1);
+          border-radius: 13px;
+          background:
+            linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 247, 237, 0.62)),
+            rgba(255, 255, 255, 0.76);
+          box-shadow: 0 12px 28px rgba(31, 41, 55, 0.1);
           cursor: pointer;
+          transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
         }
 
-        .bar{
-          display:block;
-          width: 22px;
+        .mobileBtn:hover {
+          transform: translateY(-1px);
+          border-color: rgba(255, 107, 74, 0.28);
+          box-shadow: 0 16px 34px rgba(255, 107, 74, 0.14);
+        }
+
+        .mobileBtn:focus-visible {
+          outline: 3px solid rgba(19, 184, 200, 0.26);
+          outline-offset: 3px;
+        }
+
+        .bar {
+          display: block;
+          width: 18px;
           height: 2px;
-          background: rgba(27,31,59,0.75);
-          margin: 5px 0;
-          transition: transform .2s ease, opacity .2s ease;
-        }
-        .x1{ transform: translateY(7px) rotate(45deg); }
-        .x2{ opacity: 0; }
-        .x3{ transform: translateY(-7px) rotate(-45deg); }
-
-        /* Mobile menu */
-        .mobileMenu{
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+          border-radius: 999px;
+          background: #17202c;
+          transition: transform 0.22s ease, width 0.22s ease, background 0.22s ease;
         }
 
-        .mobileInner{
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 14px 20px 18px;
-          display:flex;
-          flex-direction: column;
+        .barBottom {
+          width: 13px;
+          justify-self: end;
+          margin-right: 12px;
+        }
+
+        .barTop {
+          margin: 0;
+        }
+
+        .barTop.open {
+          width: 18px;
+          transform: translateY(3.5px) rotate(45deg);
+          background: #0f766e;
+        }
+
+        .barBottom.open {
+          width: 18px;
+          justify-self: center;
+          margin-right: 0;
+          transform: translateY(-3.5px) rotate(-45deg);
+          background: #0f766e;
+        }
+
+        .mobileMenu {
+          border-top: 1px solid rgba(31, 41, 55, 0.1);
+          background: rgba(255, 255, 255, 0.96);
+          backdrop-filter: blur(22px);
+        }
+
+        .mobileInner {
+          display: grid;
           gap: 8px;
+          padding-top: 14px;
+          padding-bottom: 18px;
         }
 
-        .mobileLink{
-          padding: 12px 12px;
-          border-radius: 12px;
-          text-decoration: none;
-          color: rgba(27,31,59,0.8);
-          font-weight: 600;
-          transition: all .2s ease;
+        .mobileLink {
+          padding: 13px 14px;
+          border-radius: 10px;
+          color: rgba(31, 41, 55, 0.78);
+          font-weight: 850;
+          background: rgba(255, 247, 237, 0.92);
         }
 
-        .mobileLink:hover{
-          background: rgba(26, 159, 181, 0.1);
-          color: #1a9fb5;
+        .mobileCta {
+          margin-top: 4px;
         }
 
-        /* Responsive rules */
-        @media (max-width: 900px){
-          .desktop{ display:none; }
-          .mobileBtn{ display:block; }
-          .brandTag{ font-size: 9px; }
-          .brandStack{ padding: 2px 12px; }
-          .navLogo{ height: 36px; }
-          .brandText{ font-size: 18px; }
+        @media (max-width: 1040px) {
+          .navLink {
+            padding: 0 10px;
+          }
+        }
+
+        @media (max-width: 930px) {
+          .desktop {
+            display: none;
+          }
+
+          .mobileBtn {
+            display: grid;
+          }
         }
       `}</style>
-      </header>
+    </header>
   );
 }

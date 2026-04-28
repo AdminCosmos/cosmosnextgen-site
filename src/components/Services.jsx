@@ -31,11 +31,18 @@ export default function Services() {
 					that keeps modern businesses alive.
 				</p>
 
-				<div className="grid svcGrid">
+				<div className="svcShowcase" aria-hidden="true">
+					<img src="/images/cosmos-services-visual.png" alt="" />
+					<div className="svcShowcaseContent">
+						<span>Delivery Systems</span>
+						<strong>Consulting, cloud, data, and talent in one operating model.</strong>
+					</div>
+				</div>
+
+				<div className="svcGrid">
 					{services.map((s) => (
 						<div key={s.title} className="card svcCard">
 							<div className="svcTop">
-								<span className="svcDot" />
 								<h3 className="svcTitle">{s.title}</h3>
 							</div>
 							<p className="svcDesc">{s.desc}</p>
@@ -45,79 +52,156 @@ export default function Services() {
 			</div>
 
 			<style>{`
-        .services{ }
-        .svcGrid{
-          display:grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
+        #services.section-light {
+          color: var(--ink-dark);
+          background:
+            radial-gradient(ellipse at 12% 12%, rgba(247, 183, 51, 0.18), transparent 34%),
+            radial-gradient(ellipse at 86% 8%, rgba(19, 184, 200, 0.16), transparent 34%),
+            linear-gradient(135deg, #fffbe6 0%, #ecfeff 46%, #fff1f2 100%);
         }
-        .svcCard{
-          padding: 28px;
-          transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-          background: rgba(20, 18, 40, 0.4);
-          border-radius: 12px;
-          border: 1px solid rgba(26, 159, 181, 0.2);
-          backdrop-filter: blur(10px);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          animation: cardFloat 0.8s ease-out backwards;
-        }
-        
-        .svcCard:nth-child(1) { animation-delay: 0.1s; }
-        .svcCard:nth-child(2) { animation-delay: 0.2s; }
-        .svcCard:nth-child(3) { animation-delay: 0.3s; }
-        .svcCard:nth-child(4) { animation-delay: 0.4s; }
-        .svcCard:nth-child(5) { animation-delay: 0.5s; }
-        .svcCard:nth-child(6) { animation-delay: 0.6s; }
-        .svcCard:nth-child(5) { animation-delay: 0.7s; }
-        .svcCard:nth-child(6) { animation-delay: 0.8s; }
 
-        
-        @keyframes cardFloat {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        #services .section-subtitle {
+          color: rgba(31, 41, 55, 0.72);
         }
-        
-        .svcCard:hover{
-          transform: translateY(-8px) scale(1.02);
-          border-color: rgba(255, 107, 53, 0.4);
-          background: rgba(255, 107, 53, 0.1);
-          box-shadow: 0 24px 48px rgba(255, 107, 53, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+        .svcShowcase {
+          position: relative;
+          min-height: 330px;
+          margin: 0 0 22px;
+          overflow: hidden;
+          border-radius: 16px;
+          border: 1px solid rgba(31, 41, 55, 0.1);
+          background: #ffffff;
+          box-shadow: 0 30px 76px rgba(31, 41, 55, 0.12);
         }
-        .svcTop{
-          display:flex;
-          gap: 12px;
-          align-items:center;
-          margin-bottom: 16px;
+
+        .svcShowcase img {
+          width: 100%;
+          height: 100%;
+          min-height: 330px;
+          object-fit: cover;
+          object-position: center;
         }
-        .svcDot{
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          background: linear-gradient(135deg, rgba(255,107,53,1) 0%, rgba(26,159,181,.8) 100%);
-          box-shadow: 0 0 16px rgba(255,107,53,0.3);
-          flex-shrink: 0;
+
+        .svcShowcase::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(90deg, rgba(23, 32, 44, 0.74), rgba(23, 32, 44, 0.08)),
+            linear-gradient(180deg, transparent, rgba(23, 32, 44, 0.62));
         }
-        .svcTitle{
+
+        .svcShowcaseContent {
+          position: absolute;
+          z-index: 1;
+          left: 28px;
+          bottom: 28px;
+          max-width: 520px;
+        }
+
+        .svcShowcaseContent span {
+          display: block;
+          margin-bottom: 14px;
+          color: #fff176;
+          font-size: 11px;
+          font-weight: 950;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+        }
+
+        .svcShowcaseContent strong {
+          display: block;
+          color: #ffffff;
+          font-size: clamp(22px, 3.2vw, 34px);
+          line-height: 1.1;
+          font-weight: 950;
+        }
+
+        .svcGrid {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 18px;
+        }
+
+        .svcCard {
+          grid-column: span 2;
+          position: relative;
+          min-height: 220px;
+          padding: 28px;
+          overflow: hidden;
+          border-color: rgba(31, 41, 55, 0.09);
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.58));
+          box-shadow: 0 18px 48px rgba(31, 41, 55, 0.09);
+          transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .svcCard:nth-child(4),
+        .svcCard:nth-child(5) {
+          grid-column: span 3;
+        }
+
+        .svcCard::before {
+          content: "";
+          position: absolute;
+          inset: 0 0 auto;
+          height: 100%;
+          background:
+            linear-gradient(135deg, rgba(255, 241, 118, 0.18), rgba(125, 223, 187, 0.14) 48%, rgba(255, 95, 162, 0.1));
+          opacity: 0.9;
+          pointer-events: none;
+        }
+
+        .svcCard:hover {
+          transform: translateY(-8px);
+          border-color: rgba(255, 107, 74, 0.3);
+          box-shadow: 0 28px 74px rgba(255, 107, 74, 0.14);
+        }
+
+        .svcTop {
+          margin-bottom: 18px;
+          position: relative;
+        }
+
+        .svcTitle {
           margin: 0;
-          font-size: 18px;
-          letter-spacing: -0.01em;
-          color: #181a20; /* much darker */
-          font-weight: 600;
+          font-size: 22px;
+          line-height: 1.14;
+          letter-spacing: 0;
+          color: #17202c;
+          font-weight: 950;
+          position: relative;
         }
-        .svcDesc{
+
+        .svcTitle::after {
+          content: "";
+          display: block;
+          width: 56px;
+          height: 4px;
+          margin-top: 16px;
+          border-radius: 999px;
+          background: #0f766e;
+          opacity: 0.76;
+        }
+
+        .svcDesc {
           margin: 0;
-          color: #23242a; /* much darker */
+          color: rgba(31, 41, 55, 0.68);
           line-height: 1.7;
-          font-size: 15px;
+          font-size: 14.5px;
+          position: relative;
         }
-        @media (max-width: 900px){
-          .svcGrid{ grid-template-columns: 1fr; }
+
+        @media (max-width: 900px) {
+          .svcGrid {
+            grid-template-columns: 1fr;
+          }
+
+          .svcCard,
+          .svcCard:nth-child(4),
+          .svcCard:nth-child(5) {
+            grid-column: auto;
+          }
         }
       `}</style>
 		</section>

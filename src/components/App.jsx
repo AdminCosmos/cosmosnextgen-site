@@ -9,7 +9,7 @@ import Contact from "./Contact.jsx";
 import Careers from "./Careers.jsx";
 import Footer from "./Footer.jsx";
 import Training from "./Training.jsx";
-import ScrollToHash from "./ScrollToHash.jsx"; // 👈 add this
+import ScrollToHash from "./ScrollToHash.jsx";
 
 function Home() {
     return (
@@ -28,7 +28,7 @@ export default function App() {
     return (
         <>
             <Navbar />
-            <ScrollToHash /> {/* 👈 this makes /#contact work */}
+            <ScrollToHash />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/training" element={<Training />} />

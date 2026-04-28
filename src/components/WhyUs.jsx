@@ -17,7 +17,7 @@ export default function WhyUs() {
             You’re not hiring a “vendor.” You’re getting an engineering partner that treats production like a first-class citizen.
           </p>
 
-          <div className="grid whyGrid">
+          <div className="whyGrid">
             {points.map((p) => (
                 <div key={p.title} className="card whyCard">
                   <div className="whyTitle">{p.title}</div>
@@ -28,41 +28,95 @@ export default function WhyUs() {
         </div>
 
         <style>{`
-        .whyGrid{
-          display:grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
+        #why.section-light {
+          color: #17202c;
+          background:
+            radial-gradient(ellipse at 8% 8%, rgba(139, 92, 246, 0.12), transparent 32%),
+            radial-gradient(ellipse at 88% 12%, rgba(255, 107, 74, 0.14), transparent 34%),
+            linear-gradient(135deg, #f5f3ff 0%, #ecfeff 42%, #fff7ed 100%);
         }
-        .whyCard{
-          padding: 28px;
-          border-radius: 12px;
-          border: 1px solid rgba(26, 159, 181, 0.2);
-          background: rgba(20, 18, 40, 0.4);
-          backdrop-filter: blur(10px);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          transition: all 0.3s ease;
+
+        #why .section-subtitle {
+          color: rgba(31, 41, 55, 0.72);
         }
+
+        .whyGrid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .whyCard {
+          min-height: 178px;
+          padding: 26px;
+          border-color: rgba(31, 41, 55, 0.09);
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.54));
+          box-shadow: 0 18px 46px rgba(31, 41, 55, 0.09);
+          backdrop-filter: blur(22px);
+          transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .whyCard::before {
+          content: "";
+          position: absolute;
+          inset: 0 0 auto;
+          height: 3px;
+          background: linear-gradient(90deg, rgba(255, 107, 74, 0.86), rgba(247, 183, 51, 0.86), rgba(125, 223, 187, 0.86), rgba(19, 184, 200, 0.86));
+        }
+
+        .whyCard::after {
+          content: "";
+          display: block;
+          width: 54px;
+          height: 4px;
+          margin-top: 22px;
+          border-radius: 999px;
+          background: #0f766e;
+          opacity: 0.72;
+        }
+
+        .whyCard:nth-child(1),
+        .whyCard:nth-child(7) {
+          grid-column: span 2;
+        }
+
         .whyCard:hover {
-          transform: translateY(-4px);
-          background: rgba(255, 107, 53, 0.1);
-          border-color: rgba(255, 107, 53, 0.4);
-          box-shadow: 0 16px 32px rgba(255, 107, 53, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          transform: translateY(-5px);
+          border-color: rgba(139, 92, 246, 0.28);
+          box-shadow: 0 28px 70px rgba(139, 92, 246, 0.13);
         }
-        .whyTitle{
-          font-weight: 700;
-          letter-spacing: -0.01em;
-          margin-bottom: 12px;
-          color: #181a20; /* much darker */
-          font-size: 18px;
+
+        .whyTitle {
+          font-weight: 900;
+          letter-spacing: 0;
+          margin-bottom: 14px;
+          color: #17202c;
+          font-size: 19px;
+          line-height: 1.22;
         }
-        .whyDesc{
-          color: #23242a; /* much darker */
+
+        .whyDesc {
+          color: rgba(31, 41, 55, 0.68);
           line-height: 1.7;
-          font-size: 15px;
+          font-size: 14.5px;
           margin: 0;
         }
-        @media (max-width: 900px){
-          .whyGrid{ grid-template-columns: 1fr; }
+
+        @media (max-width: 980px) {
+          .whyGrid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .whyCard:nth-child(1),
+          .whyCard:nth-child(7) {
+            grid-column: auto;
+          }
+        }
+
+        @media (max-width: 620px) {
+          .whyGrid {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
       </section>
